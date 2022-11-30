@@ -1,0 +1,68 @@
+---
+import { Debug } from "astro/components";
+import Layout from "../layouts/Layout.astro";
+import { contentfulClient } from "../lib/contentful";
+import type { BlogPost } from "../lib/contentful";
+
+const entries = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blogPost",
+  include: 10,
+});
+
+const posts = entries.items.map((item) => {
+  const { title, date, description, slug, thumbnail } = item.fields;
+  return {
+    title,
+    slug,
+    description,
+    date: new Date(date).toLocaleDateString(),
+    thumbnail,
+  };
+});
+---
+
+<Layout title="unicornio dev blog">
+  <main>
+    <h1>Blog Posts</h1>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/posts/${post.slug}/`}>
+              <h2>{post.title}</h2>
+              <img
+                src={"https:" + post.thumbnail.fields.file.url}
+                alt={post.thumbnail.fields.title}
+                width="500"
+                height="300"
+              />
+            </a>
+            <time>{post.date}</time>
+            <p>{post.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<!-- <Debug {entries} /> -->
+
+<style>
+  main {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul li {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
