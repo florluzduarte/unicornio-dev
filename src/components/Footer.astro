@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon";
+
+const heartLogo = {
+  icon: "mdi:cards-heart",
+  alt: "Logo corazon",
+  size: 16,
+};
+
+const astroLogo = {
+  icon: "simple-icons:astro",
+  alt: "Logo Astro.js",
+  size: 16,
+};
+---
+
+<footer>
+  <div class="footer--container drac-text-white drac-text drac-text-xs">
+    <p>Hecho con</p>
+    <Icon
+      name={heartLogo.icon}
+      alt={heartLogo.alt}
+      width={heartLogo.size}
+      height={heartLogo.size}
+    />
+    <p>y</p>
+    <Icon
+      name={astroLogo.icon}
+      alt={astroLogo.alt}
+      width={astroLogo.size}
+      height={astroLogo.size}
+    />
+    <p>
+      por <a
+        href="https://www.linkedin.com/in/florluzduarte"
+        target="_blank"
+        class="drac-anchor drac-text-sm drac-text-white drac-text-purple--hover"
+        >Flor Luz Duarte</a
+      >
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer--container {
+    background-color: var(--black);
+    height: 3rem;
+    border-top: 5px solid var(--bkg-dracula);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+</style>
