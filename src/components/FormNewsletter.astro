@@ -1,0 +1,97 @@
+---
+---
+
+<form action="">
+  <div class="form--container">
+    <div class="form--description">
+      <h2 class="drac-heading drac-heading-xl drac-text-black">
+        Enterate de todo
+      </h2>
+      <p class="drac-text drac-text-black">
+        Dejame tu email y te aviso cuando estemos online a pleno
+      </p>
+    </div>
+    <div class="form--input-container">
+      <label
+        for="name"
+        class="drac-text drac-text-black drac-text-sm drac-text-semibold"
+        >Nombre</label
+      >
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="drac-input drac-input-white drac-input-border-md drac-text-white"
+        placeholder="Tu nombre"
+      />
+      <p class="form--error drac-text drac-text-sm drac-text-black">
+        Debe tener al menos dos letras
+      </p>
+    </div>
+    <div class="form--input-container">
+      <label
+        for="email"
+        class="drac-text drac-text-black drac-text-sm drac-text-semibold"
+        >Dirección de email</label
+      >
+      <input
+        type="text"
+        id="email"
+        name="email"
+        class="drac-input drac-input-white drac-input-border-md drac-text-white"
+        placeholder="email@gmail.com"
+      />
+      <p class="form--error drac-text drac-text-sm drac-text-black">
+        La dirección está incompleta
+      </p>
+    </div>
+    <button class="btn drac-btn">¡Quiero las novedades!</button>
+  </div>
+</form>
+
+<!-- Styles -->
+
+<style>
+  .form--container {
+    display: flex;
+    flex-direction: column;
+    max-width: 430px;
+  }
+
+  .btn {
+    margin-top: 0.2rem;
+  }
+
+  .form--input-container {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    gap: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form--description {
+    margin-bottom: 1rem;
+  }
+
+  .form--error {
+    display: none;
+  }
+
+  @media screen and (max-width: 281px) {
+    .btn {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .form--input-container {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 765px) and (max-width: 1359px) {
+    .form--container {
+      max-width: 300px;
+    }
+  }
+</style>
