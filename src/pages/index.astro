@@ -1,7 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import About from "../components/About.astro";
 ---
 
-<Layout title="unicornio.dev">
-  <h1>Unicornio dev home page</h1>
-</Layout>
+<BaseLayout title="unicornio.dev - Homepage">
+  <main>
+    <About />
+  </main>
+</BaseLayout>
