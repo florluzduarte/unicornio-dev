@@ -1,0 +1,44 @@
+[
+  {
+    "icon": "ri:youtube-line",
+    "size": 36,
+    "name": "YouTube",
+    "alt": "Logo de YouTube",
+    "url": "https://www.youtube.com/@unicorniodev"
+  },
+  {
+    "icon": "ic:baseline-tiktok",
+    "size": 36,
+    "name": "TikTok",
+    "alt": "Logo de TikTok",
+    "url": "https://www.tiktok.com/@unicornio.dev"
+  },
+  {
+    "icon": "ri:instagram-line",
+    "size": 36,
+    "name": "Instagram",
+    "alt": "Logo de Instagram",
+    "url": "https://www.instagram.com/unicornio.dev/"
+  },
+  {
+    "icon": "ri:linkedin-fill",
+    "size": 36,
+    "name": "LinkedIn",
+    "alt": "Logo de LinkedIn",
+    "url": "https://www.linkedin.com/in/florluzduarte/"
+  },
+  {
+    "icon": "ri:twitter-line",
+    "size": 36,
+    "name": "Twitter",
+    "alt": "Logo de Twitter",
+    "url": "https://twitter.com/florluzduarte"
+  },
+  {
+    "icon": "ri:twitch-line",
+    "size": 36,
+    "name": "Twitch",
+    "alt": "Logo de Twitch",
+    "url": "https://www.twitch.tv/unicorniodev"
+  }
+]

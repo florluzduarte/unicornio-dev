@@ -1,7 +1,7 @@
 ---
 ---
 
-<form action="">
+<form name="contact" method="POST" action="/success-newsletter">
   <div class="form--container">
     <div class="form--description">
       <h2 class="drac-heading drac-heading-xl drac-text-black">
@@ -23,6 +23,7 @@
         name="name"
         class="drac-input drac-input-white drac-input-border-md drac-text-white"
         placeholder="Tu nombre"
+        required
       />
       <p class="form--error drac-text drac-text-sm drac-text-black">
         Debe tener al menos dos letras
@@ -40,12 +41,13 @@
         name="email"
         class="drac-input drac-input-white drac-input-border-md drac-text-white"
         placeholder="email@gmail.com"
+        required
       />
       <p class="form--error drac-text drac-text-sm drac-text-black">
         La dirección está incompleta
       </p>
     </div>
-    <button class="btn drac-btn">¡Quiero las novedades!</button>
+    <button class="btn drac-btn" type="submit">¡Quiero las novedades!</button>
   </div>
 </form>
 
