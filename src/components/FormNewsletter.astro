@@ -1,7 +1,7 @@
 ---
 ---
 
-<form name="contact" method="POST" action="/success-newsletter">
+<form name="contact" id="newsletter-form">
   <div class="form--container">
     <div class="form--description">
       <h2 class="drac-heading drac-heading-xl drac-text-black">
@@ -24,10 +24,11 @@
         class="drac-input drac-input-white drac-input-border-md drac-text-white"
         placeholder="Tu nombre"
         required
+        autocomplete="name"
+        minlength="2"
+        aria-describedby="name-minlength"
       />
-      <p class="form--error drac-text drac-text-sm drac-text-black">
-        Debe tener al menos dos letras
-      </p>
+      <p id="name-minlength"></p>
     </div>
     <div class="form--input-container">
       <label
@@ -36,16 +37,16 @@
         >Dirección de email</label
       >
       <input
-        type="text"
+        type="email"
         id="email"
         name="email"
         class="drac-input drac-input-white drac-input-border-md drac-text-white"
         placeholder="email@gmail.com"
         required
+        autocomplete="email"
+        aria-describedby="email-format"
       />
-      <p class="form--error drac-text drac-text-sm drac-text-black">
-        La dirección está incompleta
-      </p>
+      <p id="email-format"></p>
     </div>
     <button class="btn drac-btn" type="submit">¡Quiero las novedades!</button>
   </div>
@@ -76,10 +77,6 @@
     margin-bottom: 1rem;
   }
 
-  .form--error {
-    display: none;
-  }
-
   @media screen and (max-width: 281px) {
     .btn {
       font-size: 12px;
@@ -97,3 +94,9 @@
     }
   }
 </style>
+
+<!-- Form functionality -->
+
+<script>
+  import "../js/newsletterForm";
+</script>

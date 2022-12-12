@@ -4,7 +4,9 @@ import { Icon } from "astro-icon";
 
 <nav class="navbar">
   <div class="navbar--container">
-    <Icon name="Logo" width={150} class="logo" />
+    <a href="/" class="navbar--logo-anchor"
+      ><Icon name="Logo" width={150} class="logo" />
+    </a>
   </div>
 </nav>
 
@@ -15,6 +17,15 @@ import { Icon } from "astro-icon";
     justify-content: center;
     height: 4rem;
     border-bottom: 5px solid var(--bkg-dracula);
+  }
+
+  .navbar--logo-anchor {
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar--logo-anchor:hover {
+    transform: scale(1.05);
   }
 
   @media (min-width: 1360px) {
