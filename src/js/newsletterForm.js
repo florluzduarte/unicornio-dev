@@ -2,8 +2,7 @@ import { supabase } from "../config/supabaseClient";
 
 const form = document.querySelector("#newsletter-form");
 
-window.addEventListener(
-  "load",
+window.addEventListener("load", () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const formInputs = document.querySelectorAll("input");
@@ -25,5 +24,5 @@ window.addEventListener(
 
     const userEmail = document.getElementById("email");
     userEmail.value = "";
-  })
-);
+  });
+});
