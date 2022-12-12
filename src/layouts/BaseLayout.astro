@@ -7,13 +7,11 @@ import Footer from "../components/Footer.astro";
 export interface Props {
   title: string;
   description?: string;
-  imgUrl?: string;
 }
 
 const {
   title = "unicornio.dev",
   description = "Un sitio web orientado a brindar acompañamiento y contenidos de valor a personas que están aprendiendo a programar.",
-  imgUrl = "https://asset.cloudinary.com/dfzncn1pd/d56462e6c87855d4f52a6310ad110078",
 } = Astro.props;
 ---
 
@@ -32,8 +30,16 @@ const {
     <meta property="og:description" content={description} />
     <meta name="twitter:description" content={description} />
 
-    <meta property="og:image" content={imgUrl} />
-    <meta name="twitter:image" content={imgUrl} />
+    <meta property="og:type" content="website" />
+
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dfzncn1pd/image/upload/v1670853764/unicornio.dev/img-preview-meta-tags_xch6l3.png"
+    />
+    <meta
+      name="twitter:image"
+      content="https://res.cloudinary.com/dfzncn1pd/image/upload/v1670853764/unicornio.dev/img-preview-meta-tags_xch6l3.png"
+    />
   </head>
   <body>
     <Navbar />
