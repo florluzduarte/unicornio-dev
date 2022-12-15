@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import imgMentorias from "../assets/img-mentorias.png";
+
+const heroInformation = {
+  heroTitle: "Mentorías 1:1",
+  heroSubtitle: "LINKEDIN + CV + PORTFOLIO",
+  heroDescription:
+    "¿Te gustaría optimizar tus herramientas para buscar empleo? Reserva hoy tu espacio de mentoría personalizada. ES GRATIS 😉",
+};
+---
+
+<BaseLayout
+  title="Mentorías 1:1 - LinkedIn + CV + Portfolio"
+  description="Charlamos en un espacio gratuito y personalizado sobre tus dudas a la hora de buscar trabajo"
+  image="https://res.cloudinary.com/dfzncn1pd/image/upload/v1671114063/unicornio.dev/img-preview-mentorias_gdfa0d.png"
+>
+  <Hero
+    heroTitle={heroInformation.heroTitle}
+    heroSubtitle={heroInformation.heroSubtitle}
+    heroDescription={heroInformation.heroDescription}
+    anchorText="Reservar Sesión"
+    anchorLink="https://calendly.com/unicorniodev"
+    heroImage={imgMentorias}
+    heroImageAlt="Mentorias personalizadas 1:1"
+    heroImageHeight={433}
+    heroImageWidth={490}
+  />
+</BaseLayout>

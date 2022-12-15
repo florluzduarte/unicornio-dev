@@ -1,0 +1,17 @@
+---
+export interface Props {
+  anchorLink: string;
+  anchorText: string;
+}
+
+const { anchorLink, anchorText } = Astro.props;
+---
+
+<a
+  href={anchorLink}
+  class="anchor drac-btn drac-bg-yellow-pink drac-text-black"
+  target="_blank"
+  title={anchorText}
+  aria-label={anchorText}
+  aria-describedby={anchorText}>{anchorText}</a
+>

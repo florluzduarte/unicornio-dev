@@ -33,6 +33,13 @@ body {
   font-size: 1.875rem;
 }
 
+.caption-font {
+  font-family: "Fira Code", monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+}
+
 @media screen and (min-width: 1360px) {
   .title-font {
     font-size: 3.75rem;
@@ -40,11 +47,4 @@ body {
   .caption-font {
     font-size: 1.5rem;
   }
-}
-
-.caption-font {
-  font-family: "Fira Code", monospace;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 1.125rem;
 }
