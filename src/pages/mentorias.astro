@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import imgMentorias from "../assets/img-mentorias.png";
+import Services from "../components/Services.astro";
+import data from "../data/mentoriasService.json";
 
 const heroInformation = {
   heroTitle: "Mentorías 1:1",
@@ -27,4 +29,17 @@ const heroInformation = {
     heroImageHeight={433}
     heroImageWidth={490}
   />
+  <div class="service--container">
+    {
+      data.map((service) => (
+        <Services
+          icon={service.icon}
+          alt={service.alt}
+          size={service.size}
+          title={service.title}
+          content={service.content}
+        />
+      ))
+    }
+  </div>
 </BaseLayout>

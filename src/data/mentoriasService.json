@@ -1,0 +1,23 @@
+[
+  {
+    "icon": "ri:questionnaire-line",
+    "size": 24,
+    "alt": "Ícono de pregunta",
+    "title": "Resuelve tus dudas",
+    "content": "Charlamos de forma personalizada sobre cualquier consulta que tengas respecto a tus materiales para buscar trabajo"
+  },
+  {
+    "icon": "ri:user-star-line",
+    "size": 24,
+    "alt": "Ícono de usuario con estrella",
+    "title": "Mejora tu perfil",
+    "content": "Te llevas feedback sobre tu perfil de LinkedIn, CV y Portfolio para que puedas seguir trabajando sobre ellos."
+  },
+  {
+    "icon": "ri:chat-smile-2-line",
+    "size": 24,
+    "alt": "Ícono diálogo de conversación",
+    "title": "Llevate consejos",
+    "content": "Prepararse para buscar trabajo es complejo, pero un consejo en el momento justo, puede orientarte en el camino."
+  }
+]
