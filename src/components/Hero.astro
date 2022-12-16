@@ -1,0 +1,141 @@
+---
+import { Image } from "@astrojs/image/components";
+import AnchorButton from "./AnchorButton.astro";
+
+export interface Props {
+  heroTitle: string;
+  heroSubtitle: string;
+  heroDescription: string;
+  anchorText: string;
+  anchorLink: string;
+  heroImage: any;
+  heroImageWidth: number;
+  heroImageHeight: number;
+  heroImageAlt: string;
+}
+
+const {
+  heroTitle,
+  heroSubtitle,
+  heroDescription,
+  anchorText,
+  anchorLink,
+  heroImage,
+  heroImageAlt,
+  heroImageHeight,
+  heroImageWidth,
+} = Astro.props;
+---
+
+<section>
+  <div class="hero--container">
+    <div class="hero--texts-container">
+      <h1 class="title-font drac-text-purple">{heroTitle}</h1>
+      <h2 class="caption caption-font drac-text-white">{heroSubtitle}</h2>
+      <p class="p-text drac-text drac-text-white">{heroDescription}</p>
+      <AnchorButton
+        anchorText={anchorText}
+        anchorLink={anchorLink}
+        btnBgColor="yellow-pink"
+        btnTypeColor="black"
+      />
+    </div>
+    <div class="hero--image-container">
+      <Image
+        src={heroImage}
+        height={heroImageHeight}
+        width={heroImageWidth}
+        alt={heroImageAlt}
+        class="imgHero"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+
+<style>
+  .imgHero {
+    height: 264px;
+    width: 299px;
+  }
+
+  @media screen and (min-width: 1360px) {
+    .imgHero {
+      height: 433px;
+      width: 490px;
+    }
+  }
+
+  .hero--texts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .p-text {
+    text-align: center;
+  }
+
+  .hero--container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 1.5rem;
+  }
+
+  @media screen and (min-width: 1360px) {
+    .hero--container {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .hero--texts-container {
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 500px;
+    }
+
+    .p-text {
+      text-align: left;
+    }
+  }
+
+  @media screen and (min-width: 765px) and (max-width: 1359px) {
+    .hero--container {
+      flex-direction: row;
+      justify-content: center;
+      margin: 4rem 1.5rem;
+      gap: 2rem;
+    }
+
+    .hero--texts-container {
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 350px;
+    }
+
+    .p-text {
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 285px) {
+    .imgHero {
+      height: 194px;
+      width: 218px;
+    }
+
+    .caption {
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 530px) and (max-width: 545px) {
+    .p-text {
+      max-width: 350px;
+    }
+  }
+</style>

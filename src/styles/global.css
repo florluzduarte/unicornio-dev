@@ -33,6 +33,13 @@ body {
   font-size: 1.875rem;
 }
 
+.caption-font {
+  font-family: "Fira Code", monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+}
+
 @media screen and (min-width: 1360px) {
   .title-font {
     font-size: 3.75rem;
@@ -42,9 +49,32 @@ body {
   }
 }
 
-.caption-font {
-  font-family: "Fira Code", monospace;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 1.125rem;
+.service--container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 300px;
+  margin: 3rem auto;
+}
+
+@media screen and (max-width: 285px) {
+  .service--container {
+    max-width: 220px;
+  }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1359px) {
+  .service--container {
+    flex-direction: row;
+    max-width: 680px;
+    margin: 5rem auto;
+  }
+}
+
+@media screen and (min-width: 1360px) {
+  .service--container {
+    flex-direction: row;
+    max-width: 1050px;
+    margin: 5rem auto;
+  }
 }
