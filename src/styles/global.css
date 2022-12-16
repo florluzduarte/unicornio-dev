@@ -67,6 +67,7 @@ body {
   .service--container {
     flex-direction: row;
     max-width: 680px;
+    margin: 5rem auto;
   }
 }
 

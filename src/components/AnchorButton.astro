@@ -2,14 +2,16 @@
 export interface Props {
   anchorLink: string;
   anchorText: string;
+  btnBgColor: string;
+  btnTypeColor: string;
 }
 
-const { anchorLink, anchorText } = Astro.props;
+const { anchorLink, anchorText, btnBgColor, btnTypeColor } = Astro.props;
 ---
 
 <a
   href={anchorLink}
-  class="anchor drac-btn drac-bg-yellow-pink drac-text-black"
+  class={`anchor drac-btn drac-bg-${btnBgColor} drac-text-${btnTypeColor}`}
   target="_blank"
   title={anchorText}
   aria-label={anchorText}

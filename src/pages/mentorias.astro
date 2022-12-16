@@ -3,7 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import imgMentorias from "../assets/img-mentorias.png";
 import Services from "../components/Services.astro";
-import data from "../data/mentoriasService.json";
+import servicesData from "../data/mentoriasService.json";
+import CtaItem from "../components/CtaItem.astro";
+import CtaServicesData from "../data/ctaMentorias.json";
+import AnchorButton from "../components/AnchorButton.astro";
 
 const heroInformation = {
   heroTitle: "Mentorías 1:1",
@@ -31,7 +34,7 @@ const heroInformation = {
   />
   <div class="service--container">
     {
-      data.map((service) => (
+      servicesData.map((service) => (
         <Services
           icon={service.icon}
           alt={service.alt}
@@ -42,4 +45,79 @@ const heroInformation = {
       ))
     }
   </div>
+  <div class="service--cta-container drac-box drac-bg-animated drac-rounded-xl">
+    <div class="cta--items-container">
+      {
+        CtaServicesData.map((data) => (
+          <CtaItem title={data.title} description={data.description} />
+        ))
+      }
+    </div>
+    <div class="cta--anchor-container">
+      <AnchorButton
+        anchorText="¡Quiero mi mentoría!"
+        anchorLink="https://calendly.com/unicorniodev"
+        btnBgColor="white"
+        btnTypeColor="black"
+      />
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .service--cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 300px;
+    margin: 5rem auto;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 285px) {
+    .service--cta-container {
+      max-width: 250px;
+    }
+  }
+
+  @media screen and (min-width: 535px) and (max-width: 545px) {
+    .service--cta-container {
+      max-width: 400px;
+    }
+  }
+
+  @media screen and (min-width: 765px) and (max-width: 1359px) {
+    .service--cta-container {
+      max-width: 720px;
+      padding-top: 2.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-top: 5rem;
+    }
+
+    .cta--items-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  @media screen and (min-width: 1360px) {
+    .service--cta-container {
+      max-width: 1050px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 2.5rem;
+      margin-top: 7rem;
+    }
+
+    .cta--items-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .cta--anchor-container {
+    margin: 0 auto 1rem auto;
+  }
+</style>
