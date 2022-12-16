@@ -4,7 +4,7 @@ import Hero from "../components/Hero.astro";
 import imgMentorias from "../assets/img-mentorias.png";
 import Services from "../components/Services.astro";
 import servicesData from "../data/mentoriasService.json";
-import CtaItem from "../components/CtaItem.astro";
+import ItemCta from "../components/ItemCta.astro";
 import CtaServicesData from "../data/ctaMentorias.json";
 import AnchorButton from "../components/AnchorButton.astro";
 
@@ -49,7 +49,7 @@ const heroInformation = {
     <div class="cta--items-container">
       {
         CtaServicesData.map((data) => (
-          <CtaItem title={data.title} description={data.description} />
+          <ItemCta title={data.title} description={data.description} />
         ))
       }
     </div>
