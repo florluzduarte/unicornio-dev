@@ -11,13 +11,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.11.6",
-    "@astrojs/sitemap": "^1.0.0",
-    "@contentful/rich-text-html-renderer": "^15.13.1",
-    "@supabase/supabase-js": "^2.1.2",
-    "astro": "^1.6.11",
-    "astro-icon": "^0.8.0",
-    "contentful": "^9.2.13",
-    "dracula-ui": "^1.0.3"
+    "@astrojs/sitemap": "^3.1.4",
+    "astro": "^4.8.4",
+    "astro-icon": "^1.1.0"
   }
 }
