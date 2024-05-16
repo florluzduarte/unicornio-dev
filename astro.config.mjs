@@ -1,18 +1,11 @@
 import { defineConfig } from "astro/config";
-
-// https://astro.build/config
 import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
-import image from "@astrojs/image";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://unicornio.dev",
-  integrations: [
-    sitemap({
-      filter: (page) => page !== "https://unicornio.dev/success-newsletter",
-    }),
-    image(),
-  ],
+  integrations: [sitemap(), tailwind(), mdx()]
 });
