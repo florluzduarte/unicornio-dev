@@ -3,13 +3,17 @@ export interface Props {
   title?: string;
   description?: string;
   image?: string;
+  urlPath?: string;
 }
 
 const {
-  title = "unicornio.dev",
+  title = "Florencia Luz Duarte | unicornio.dev",
   description = "Un sitio web orientado a brindar acompañamiento y contenidos de valor a personas que están aprendiendo a programar.",
-  image = "https://res.cloudinary.com/dfzncn1pd/image/upload/v1670853764/unicornio.dev/img-preview-meta-tags_xch6l3.png",
+  image = "/metatags-unicornio-links.png",
+  urlPath = "/",
 } = Astro.props;
+
+const urlFinal = `https://unicornio.dev${urlPath}`;
 ---
 
 <!doctype html>
@@ -27,19 +31,23 @@ const {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://unicornio.dev/" />
+    <meta property="og:url" content={urlFinal} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://unicornio.dev/" />
+    <meta property="twitter:url" content={urlFinal} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
   </head>
-  <body>
-    <slot />
+  <body class="bg-black text-white min-h-screen">
+    <main
+      class="flex flex-col gap-14 mt-14 lg:mt-24 mx-6 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-5xl"
+    >
+      <slot />
+    </main>
   </body>
 </html>
