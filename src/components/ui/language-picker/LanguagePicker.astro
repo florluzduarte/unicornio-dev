@@ -1,0 +1,13 @@
+---
+import { languages } from "@translate/dictionary";
+
+const currentPath = Astro.url.pathname.substring(4);
+---
+
+{
+  Object.entries(languages).map(([lang, label]) => (
+    <li>
+      <a href={`/${lang}/${currentPath}`}>{label}</a>
+    </li>
+  ))
+}

@@ -1,4 +1,6 @@
 ---
+import Navbar from "@components/ui/navbar/Navbar.astro";
+
 export interface Props {
   title?: string;
   description?: string;
@@ -46,6 +48,7 @@ const locale = Astro.currentLocale;
     <meta property="twitter:image" content={image} />
   </head>
   <body class="bg-black text-white min-h-screen">
+    <Navbar />
     <main
       class="flex flex-col gap-14 mt-14 lg:mt-24 mx-6 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-5xl"
     >
