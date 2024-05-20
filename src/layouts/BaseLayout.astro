@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import Navbar from "@components/ui/navbar/Navbar.astro";
 
 export interface Props {
@@ -46,6 +47,8 @@ const locale = Astro.currentLocale;
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
+
+    <ViewTransitions />
   </head>
   <body class="bg-black text-white min-h-screen">
     <Navbar />
