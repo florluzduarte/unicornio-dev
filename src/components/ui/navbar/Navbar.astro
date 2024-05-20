@@ -1,0 +1,32 @@
+---
+import { useTranslations } from "@translate/utils/utils";
+import type { Lang } from "@translate/dictionary";
+import LanguagePicker from "../language-picker/LanguagePicker.astro";
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+---
+
+<ul>
+  <li>
+    <a href={`/${lang}/`}>
+      {t("nav.home")}
+    </a>
+  </li>
+  <li>
+    <a href={`/${lang}/blog/`}>
+      {t("nav.blog")}
+    </a>
+  </li>
+  <li>
+    <a href={`/${lang}/resources/`}>
+      {t("nav.resources")}
+    </a>
+  </li>
+  <li>
+    <a href={`/${lang}/about/`}>
+      {t("nav.about")}
+    </a>
+  </li>
+  <LanguagePicker />
+</ul>

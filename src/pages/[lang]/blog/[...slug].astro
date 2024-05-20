@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("blog");
+  const paths = pages.map((page: any) => {
+    const [lang, ...slug] = page.slug.split("/");
+    return {
+      params: {
+        lang: lang,
+        slug: slug.join("/") || undefined,
+      },
+      props: page,
+    };
+  });
+  return paths;
+}
+
+const { lang, slug } = Astro.params;
+const page = Astro.props;
+const formatDate = page.data.publishDate.toLocaleString(lang).split(",");
+const formattedDateByLang = formatDate[0];
+const { Content } = await page.render();
+---
+
+<h1>{page.data.title}</h1>
+<p>{formattedDateByLang}</p>
+<Content />
