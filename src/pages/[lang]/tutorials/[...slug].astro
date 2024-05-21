@@ -1,12 +1,14 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import type { Lang } from "@translate/dictionary";
 import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { formatDateByLang } from "src/utils/formatDateByLang";
 
 export async function getStaticPaths() {
   const tutorials = await getCollection("tutorials");
-  const paths = tutorials.map((tutorial: any) => {
+  const paths = tutorials.map((tutorial: CollectionEntry<"tutorials">) => {
     const [lang, ...slug] = tutorial.slug.split("/");
     return {
       params: {
@@ -21,7 +23,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const tutorial = Astro.props;
-const formattedDateByLang = formatDateByLang(tutorial, lang);
+const formattedDateByLang = formatDateByLang(tutorial, lang as Lang);
 const { Content } = await tutorial.render();
 ---
 
