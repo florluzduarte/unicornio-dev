@@ -13,11 +13,13 @@ export const dictionary = {
     "nav.blog": "Blog",
     "nav.resources": "Recursos",
     "nav.about": "Acerca",
+    "flor.title": "Página de Flor",
   },
   en: {
     "nav.home": "Home",
     "nav.blog": "Blog",
     "nav.resources": "Resources",
     "nav.about": "About",
+    "flor.title": "Flor Page",
   }
 } as const;
