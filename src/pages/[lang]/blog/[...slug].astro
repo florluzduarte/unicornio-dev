@@ -1,9 +1,13 @@
 ---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type { Lang } from "@translate/dictionary";
+import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
+import { formatDateByLang } from "src/utils/formatDateByLang";
 
 export async function getStaticPaths() {
   const pages = await getCollection("blog");
-  const paths = pages.map((page: any) => {
+  const paths = pages.map((page: CollectionEntry<"blog">) => {
     const [lang, ...slug] = page.slug.split("/");
     return {
       params: {
@@ -16,13 +20,14 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { lang, slug } = Astro.params;
+const { lang } = Astro.params;
 const page = Astro.props;
-const formatDate = page.data.publishDate.toLocaleString(lang).split(",");
-const formattedDateByLang = formatDate[0];
+const formattedDate = formatDateByLang(page, lang as Lang);
 const { Content } = await page.render();
 ---
 
-<h1>{page.data.title}</h1>
-<p>{formattedDateByLang}</p>
-<Content />
+<BaseLayout>
+  <h1>{page.data.title}</h1>
+  <p>{formattedDate}</p>
+  <Content />
+</BaseLayout>
