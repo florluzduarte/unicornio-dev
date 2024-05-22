@@ -1,0 +1,17 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { Lang } from "@translate/dictionary";
+import { useTranslations } from "@translate/utils/i18n-utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+export const getStaticPaths = (() => {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}) satisfies GetStaticPaths;
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+---
+
+<BaseLayout>
+  <h1>{t("about.title")}</h1>
+</BaseLayout>

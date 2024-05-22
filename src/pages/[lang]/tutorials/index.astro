@@ -1,8 +1,8 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import type { GetStaticPaths } from "astro";
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
-import type { GetStaticPaths } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -13,5 +13,5 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <h1>{t("flor.title")}</h1>
+  <h1>{t("tutorials.title")}</h1>
 </BaseLayout>
