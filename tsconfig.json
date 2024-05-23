@@ -9,6 +9,7 @@
       "@data/*": ["src/data/*"],
       "@translate/*": ["src/i18n/*"],
       "@utils/*": ["src/utils/*"],
+      "@type/*": ["src/types/*"],
     }
   }
 }
