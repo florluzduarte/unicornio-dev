@@ -6,28 +6,26 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
+				"sans": ['"Inter Variable"', ...defaultTheme.fontFamily.sans],
+				"mono": ['"Istok Web"', ...defaultTheme.fontFamily.mono],
 			},
 			colors: {
-				black: '#0C0C0C',
+				black: '#191919',
 				white: '#F8F8F2',
 				gray: {
-					900: '#0C0C0C',
-					800: '#141414',
-					600: '#222222',
-					400: '#282828',
-					300: '#575757',
-					200: '#D9D9D9',
-					100: '#ECECEC'
+					900: '#1E1E1E',
+					700: '#292929',
+					100: '#CCCCB8',
 				},
-				yellow: {
-					200: '#FFFF80'
-				},
-				pink: {
-					400: '#FF80BF'
-				},
-			}
+				yellow: '#FFFAAD',
+				orange: '#FFB890',
+				red: '#FF9580',
+				pink: '#F975E0',
+				fuchsia: '#FB36DB',
+				purple: '#BB4BFF',
+				green: '#73FFE1',
+			},
 		},
-	},
-	plugins: [],
+		plugins: [],
+	}
 }
