@@ -20,7 +20,7 @@ export default {
 				yellow: '#FFFAAD',
 				orange: '#FFB890',
 				red: '#FF9580',
-				pink: '#F975E0',
+				pink: '#F998E6',
 				fuchsia: '#FB36DB',
 				purple: '#BB4BFF',
 				green: '#73FFE1',

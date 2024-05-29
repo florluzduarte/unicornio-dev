@@ -1,0 +1,10 @@
+---
+import type { Lang } from "@translate/dictionary";
+
+const lang = Astro.currentLocale as Lang;
+---
+
+<a href={`/${lang}/`} class="flex flex-col items-center py-6">
+  <span class="text-pink font-bold font-mono">Florencia Luz Duarte</span>
+  <span class="text-white font-mono">@unicornio.dev</span>
+</a>

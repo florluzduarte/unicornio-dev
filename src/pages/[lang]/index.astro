@@ -5,8 +5,6 @@ import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
 import Paragraph from "@components/ui/text-components/Paragraph.astro";
-import Caps from "@components/ui/text-components/Caps.astro";
-import SmallText from "@components/ui/text-components/SmallText.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -21,6 +19,4 @@ const t = useTranslations(lang);
   <Paragraph
     text="Lorem ipsum dolor sit amet consectetur. Aliquam consectetur ac et tortor odio sed dictum id tincidunt. Magna potenti aenean proin magna amet varius venenatis velit. Vitae adipiscing et hendrerit egestas massa. Sit phasellus scelerisque arcu tristique semper bibendum praesent commodo aenean. Odio ultrices ullamcorper nibh pretium non. Quam sed ut eget neque pellentesque eget id. Pharetra elit viverra sagittis tortor ante. Odio sit amet habitasse quam."
   />
-  <Caps text="Caps" />
-  <SmallText text="Small" />
 </BaseLayout>

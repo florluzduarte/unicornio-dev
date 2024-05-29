@@ -1,32 +1,14 @@
 ---
-import { useTranslations } from "@translate/utils/i18n-utils";
-import type { Lang } from "@translate/dictionary";
+import NavbarLogo from "./NavbarLogo.astro";
+import NavbarLinks from "./NavbarLinks.astro";
 import LanguagePicker from "../language-picker/LanguagePicker.astro";
-
-const lang = Astro.currentLocale as Lang;
-const t = useTranslations(lang);
+import Line from "../line/Line.astro";
 ---
 
-<ul>
-  <li>
-    <a href={`/${lang}/`}>
-      {t("nav.home")}
-    </a>
-  </li>
-  <li>
-    <a href={`/${lang}/blog/`}>
-      {t("nav.blog")}
-    </a>
-  </li>
-  <li>
-    <a href={`/${lang}/resources/`}>
-      {t("nav.resources")}
-    </a>
-  </li>
-  <li>
-    <a href={`/${lang}/about/`}>
-      {t("nav.about")}
-    </a>
-  </li>
+<nav class="mx-6">
+  <NavbarLogo />
+  <Line />
+  <div class="m-3"><NavbarLinks /></div>
+  <Line />
   <LanguagePicker />
-</ul>
+</nav>
