@@ -1,6 +1,6 @@
 export const languages = {
-  en: "English",
   es: "Español",
+  en: "English",
 };
 
 export type Lang = "es" | "en";
@@ -13,6 +13,7 @@ export const dictionary = {
     "nav.blog": "Blog",
     "nav.resources": "Recursos",
     "nav.about": "Acerca",
+    "nav.aria": "Menú principal",
     "home.title": "Página de Flor",
     "about.title": "Sobre Flor",
     "blog.title": "Blog en español",
@@ -27,6 +28,7 @@ export const dictionary = {
     "nav.blog": "Blog",
     "nav.resources": "Resources",
     "nav.about": "About",
+    "nav.aria": "Main Menu",
     "home.title": "Flor Page",
     "about.title": "About Flor",
     "blog.title": "Blog in English",

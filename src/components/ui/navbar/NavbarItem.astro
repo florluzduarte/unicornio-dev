@@ -1,0 +1,24 @@
+---
+import type { Lang } from "@translate/dictionary";
+
+interface Props {
+  lang: Lang;
+  subpath: string;
+}
+
+const pathname = new URL(Astro.request.url).pathname;
+
+const { subpath, lang } = Astro.props;
+---
+
+<li class="font-mono text-gray-100">
+  <a
+    href={`/${lang}/${subpath}`}
+    class={pathname === `/${lang}/${subpath}`
+      ? "font-bold text-white"
+      : "font-normal"}
+    aria-current={pathname === `/${lang}/${subpath}` ? "page" : "false"}
+  >
+    <slot />
+  </a>
+</li>

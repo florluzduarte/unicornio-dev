@@ -1,14 +1,22 @@
 ---
+import { useTranslations } from "@translate/utils/i18n-utils";
+import type { Lang } from "@translate/dictionary";
+
 import NavbarLogo from "./NavbarLogo.astro";
 import NavbarLinks from "./NavbarLinks.astro";
 import LanguagePicker from "../language-picker/LanguagePicker.astro";
 import Line from "../line/Line.astro";
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
 ---
 
-<nav class="mx-6">
+<nav class="mx-6" aria-labelledby="main-menu">
+  <h2 id="main-menu" class="sr-only">{t("nav.aria")}</h2>
   <NavbarLogo />
   <Line />
-  <div class="m-3"><NavbarLinks /></div>
+  <NavbarLinks />
   <Line />
   <LanguagePicker />
+  <Line />
 </nav>

@@ -1,14 +1,16 @@
 ---
-import { languages } from "@translate/dictionary";
-import { Icon } from "astro-icon/components";
+import { languages, type Lang } from "@translate/dictionary";
+import NavbarItem from "../navbar/NavbarItem.astro";
 
 const currentPath = Astro.url.pathname.substring(4);
 ---
 
-{
-  Object.entries(languages).map(([lang, label]) => (
-    <li>
-      <a href={`/${lang}/${currentPath}`}>{label}</a>
-    </li>
-  ))
-}
+<ul class="flex justify-around py-4 m-3">
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <NavbarItem lang={lang as Lang} subpath={currentPath}>
+        {label}
+      </NavbarItem>
+    ))
+  }
+</ul>

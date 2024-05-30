@@ -1,49 +1,26 @@
 ---
 import { useTranslations } from "@translate/utils/i18n-utils";
 import type { Lang } from "@translate/dictionary";
+import NavbarItem from "./NavbarItem.astro";
 
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
-const pathname = new URL(Astro.request.url).pathname;
 ---
 
-<ul class="flex justify-between py-4">
-  <li class="font-mono text-gray-100">
-    <a
-      href={`/${lang}/`}
-      class={pathname === `/${lang}/` ? "font-bold text-white" : "font-normal"}
-    >
-      {t("nav.home")}
-    </a>
-  </li>
-  <li class="font-mono text-gray-100">
-    <a
-      href={`/${lang}/blog/`}
-      class={pathname === `/${lang}/blog/`
-        ? "font-bold text-white"
-        : "font-normal"}
-    >
-      {t("nav.blog")}
-    </a>
-  </li>
-  <li class="font-mono text-gray-100">
-    <a
-      href={`/${lang}/resources/`}
-      class={pathname === `/${lang}/resources/`
-        ? "font-bold text-white"
-        : "font-normal"}
-    >
-      {t("nav.resources")}
-    </a>
-  </li>
-  <li class="font-mono text-gray-100">
-    <a
-      href={`/${lang}/about/`}
-      class={pathname === `/${lang}/about/`
-        ? "font-bold text-white"
-        : "font-normal"}
-    >
-      {t("nav.about")}
-    </a>
-  </li>
+<ul class="flex justify-between py-4 m-3">
+  <NavbarItem lang={lang} subpath="">
+    {t("nav.home")}
+  </NavbarItem>
+
+  <NavbarItem lang={lang} subpath="blog/">
+    {t("nav.blog")}
+  </NavbarItem>
+
+  <NavbarItem lang={lang} subpath="resources/">
+    {t("nav.resources")}
+  </NavbarItem>
+
+  <NavbarItem lang={lang} subpath="about/">
+    {t("nav.about")}
+  </NavbarItem>
 </ul>
