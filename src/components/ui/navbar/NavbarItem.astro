@@ -11,7 +11,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const { subpath, lang } = Astro.props;
 ---
 
-<li class="font-mono text-gray-100">
+<li class="font-mono text-gray-100 lg:px-8">
   <a
     href={`/${lang}/${subpath}`}
     class={pathname === `/${lang}/${subpath}`

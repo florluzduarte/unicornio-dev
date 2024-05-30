@@ -5,18 +5,17 @@ import type { Lang } from "@translate/dictionary";
 import NavbarLogo from "./NavbarLogo.astro";
 import NavbarLinks from "./NavbarLinks.astro";
 import LanguagePicker from "../language-picker/LanguagePicker.astro";
-import Line from "../line/Line.astro";
 
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
 ---
 
-<nav class="mx-6" aria-labelledby="main-menu">
+<nav
+  class="px-6 flex flex-col lg:flex-row lg:justify-between lg:items-center xl:max-w-6xl xl:mx-auto"
+  aria-labelledby="main-menu"
+>
   <h2 id="main-menu" class="sr-only">{t("nav.aria")}</h2>
   <NavbarLogo />
-  <Line />
   <NavbarLinks />
-  <Line />
   <LanguagePicker />
-  <Line />
 </nav>
