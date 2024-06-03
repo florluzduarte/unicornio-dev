@@ -5,9 +5,7 @@ import NavbarItem from "../navbar/NavbarItem.astro";
 const currentPath = Astro.url.pathname.substring(4);
 ---
 
-<ul
-  class="flex justify-around py-3 px-3 border-b-[0.5px] border-gray-100 md:border-b-0"
->
+<ul class="flex justify-around py-3 px-3 md:border-b-0 md:border-gray-100">
   {
     Object.entries(languages).map(([lang, label]) => (
       <NavbarItem lang={lang as Lang} subpath={currentPath}>

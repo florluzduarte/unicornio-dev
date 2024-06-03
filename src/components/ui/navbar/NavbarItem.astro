@@ -11,13 +11,15 @@ const pathname = new URL(Astro.request.url).pathname;
 const { subpath, lang } = Astro.props;
 ---
 
-<li class="font-mono text-gray-100 md:px-3 lg:px-8">
+<li class="font-mono text-gray-100 md:px-3 lg:px-8 hover:text-white">
   <a
     href={`/${lang}/${subpath}`}
     class={pathname === `/${lang}/${subpath}`
-      ? "font-bold text-white"
+      ? "font-bold text-green hover:text-white"
       : "font-normal"}
-    aria-current={pathname === `/${lang}/${subpath}` ? "page" : "false"}
+    aria-current={pathname === `/${lang}/${subpath}` || `/${lang}/${subpath}/`
+      ? "page"
+      : "false"}
   >
     <slot />
   </a>
