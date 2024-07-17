@@ -11,7 +11,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const { subpath, lang } = Astro.props;
 ---
 
-<li class="font-mono text-gray-100 md:px-3 lg:px-8 hover:text-white">
+<li class="font-mono text-gray-100 md:px-3 lg:px-6 hover:text-white">
   <a
     href={`/${lang}/${subpath}`}
     class={pathname === `/${lang}/${subpath}`
@@ -21,6 +21,8 @@ const { subpath, lang } = Astro.props;
       ? "page"
       : "false"}
   >
-    <slot />
+    <div class="flex gap-3">
+      <slot />
+    </div>
   </a>
 </li>

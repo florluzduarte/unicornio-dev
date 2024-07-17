@@ -1,7 +1,7 @@
 ---
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
-import { footerLinksData } from "./footerLinksData";
+import { footerLinksData, footerExternalLinks } from "./footerLinksData";
 import NavbarItem from "../navbar/NavbarItem.astro";
 
 const lang = Astro.currentLocale as Lang;
@@ -20,5 +20,10 @@ const t = useTranslations(lang);
         </NavbarItem>
       ))
     }
+    <li class="font-mono text-gray-100 md:px-3 lg:px-6 hover:text-white">
+      <a href="https://florluzduarte.unicornio.dev" target="_blank">
+        {t(footerExternalLinks[0].translationKey)}
+      </a>
+    </li>
   </ul>
 </nav>

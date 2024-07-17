@@ -37,4 +37,11 @@ export const footerLinksData: INavbarItem[] = [
     translationKey: "nav.contact",
     subpath: "contact/"
   }
+];
+
+export const footerExternalLinks: INavbarItem[] = [
+  {
+    translationKey: "nav.work",
+    subpath: "https://florluzduarte.unicornio.dev"
+  }
 ]

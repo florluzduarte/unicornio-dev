@@ -1,6 +1,7 @@
 ---
 import { languages, type Lang } from "@translate/dictionary";
 import NavbarItem from "../navbar/NavbarItem.astro";
+import { Icon } from "astro-icon/components";
 
 const currentPath = Astro.url.pathname.substring(4);
 ---
@@ -10,6 +11,7 @@ const currentPath = Astro.url.pathname.substring(4);
     Object.entries(languages).map(([lang, label]) => (
       <NavbarItem lang={lang as Lang} subpath={currentPath}>
         {label}
+        <Icon name={`${lang}-flag`} size={24} />
       </NavbarItem>
     ))
   }
