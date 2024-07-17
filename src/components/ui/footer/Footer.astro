@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components";
+import Line from "../line/Line.astro";
+import Paragraph from "../text-components/Paragraph.astro";
+import SecondaryNavbar from "./SecondaryNavbar.astro";
+import SocialMediaNavbar from "./SocialMediaNavbar.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="mx-6 xl:max-w-6xl xl:mx-auto">
+  <Line />
+  <div class="flex flex-col items-center my-4">
+    <Paragraph text={`© 2023 - ${currentYear}`} />
+    <Paragraph text="Florencia Luz Duarte | unicornio.dev" />
+  </div>
+  <Line />
+  <SecondaryNavbar />
+  <Line />
+  <SocialMediaNavbar />
+</footer>
