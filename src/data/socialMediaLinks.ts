@@ -49,5 +49,12 @@ export const socialMediaLinks: ISocialMediaLink[] = [
     name: "Instagram",
     size: 24,
     url: "https://www.instagram.com/unicornio.dev/"
+  },
+  {
+    icon: "social_media/tiktok",
+    altText: "TikTok",
+    name: "TikTok",
+    size: 24,
+    url: "https://www.tiktok.com/@unicornio.dev"
   }
 ] 
