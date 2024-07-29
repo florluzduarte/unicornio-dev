@@ -1,33 +1,50 @@
 ---
+import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { Lang } from "@translate/dictionary";
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { formatDateByLang } from "src/utils/formatDateByLang";
+import Line from "@components/ui/line/Line.astro";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("blog");
-  const paths = pages.map((page: CollectionEntry<"blog">) => {
-    const [lang, ...slug] = page.slug.split("/");
+  const blogEntries = await getCollection("blog");
+  const paths = blogEntries.map((entry: CollectionEntry<"blog">) => {
+    const [lang, ...slug] = entry.slug.split("/");
     return {
       params: {
         lang: lang,
-        slug: slug.join("/") || undefined,
+        slug: slug.join("/"),
       },
-      props: page,
+      props: {
+        entry: entry,
+      },
     };
   });
-  return paths;
+  return paths satisfies GetStaticPaths;
 }
 
-const { lang } = Astro.params;
-const page = Astro.props;
-const formattedDate = formatDateByLang(page, lang as Lang);
-const { Content } = await page.render();
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { lang } = Astro.params as Params;
+const { entry } = Astro.props;
+const formattedDate = formatDateByLang(entry, lang as Lang);
+const { Content } = await entry.render();
 ---
 
 <BaseLayout>
-  <h1>{page.data.title}</h1>
-  <p>{formattedDate}</p>
-  <Content />
+  <article>
+    <div class="flex flex-col gap-4 mb-14">
+      <h1 class="font-sans text-[32px] lg:text-[40px] text-white font-bold">
+        {entry.data.title}
+      </h1>
+      <p class="font-sans text-sm font-bold text-gray-100">
+        {"Fecha de publicacion: " + formattedDate}
+      </p>
+    </div>
+    <Line />
+    <div class="flex flex-col gap-8 my-14">
+      <Content />
+    </div>
+  </article>
 </BaseLayout>
