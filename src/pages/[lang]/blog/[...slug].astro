@@ -3,11 +3,17 @@ import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { Lang } from "@translate/dictionary";
 import type { CollectionEntry } from "astro:content";
+import type {
+  BlogFromSlug,
+  BlogProps,
+} from "@type/content-collections/blog-collection-types";
 import { getCollection } from "astro:content";
 import { formatDateByLang } from "src/utils/formatDateByLang";
 import Line from "@components/ui/line/Line.astro";
 
-export async function getStaticPaths() {
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+export async function getStaticPaths(): Promise<BlogFromSlug> {
   const blogEntries = await getCollection("blog");
   const paths = blogEntries.map((entry: CollectionEntry<"blog">) => {
     const [lang, ...slug] = entry.slug.split("/");
@@ -24,10 +30,8 @@ export async function getStaticPaths() {
   return paths satisfies GetStaticPaths;
 }
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
-
 const { lang } = Astro.params as Params;
-const { entry } = Astro.props;
+const { entry } = Astro.props as BlogProps;
 const formattedDate = formatDateByLang(entry, lang as Lang);
 const { Content } = await entry.render();
 ---
