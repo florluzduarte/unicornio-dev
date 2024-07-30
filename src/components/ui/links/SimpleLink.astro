@@ -1,0 +1,16 @@
+---
+interface Props {
+  path: string;
+  color?: string;
+}
+
+const { path, color = "yellow" } = Astro.props;
+---
+
+<a
+  href={path}
+  class=`text-${color} hover:text-green font-sans cursor-pointer`
+  target="_blank"
+>
+  <slot />
+</a>

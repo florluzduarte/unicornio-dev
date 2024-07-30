@@ -2,16 +2,15 @@
 import type { FontType } from "@type/ui-types";
 
 interface Props {
-  text: string;
   fontType?: FontType;
   color?: string;
 }
 
-const { text, fontType = "bold", color = "text-pink" } = Astro.props;
+const { fontType = "bold", color = "text-pink" } = Astro.props;
 ---
 
 <h2
-  class={`font-sans text-[32px] ${color} ${fontType === "bold" ? "font-bold" : "font-normal"} lg:text-[48px]`}
+  class={`font-sans text-[24px] lg:text-[32px] ${color} ${fontType === "bold" ? "font-bold" : "font-normal"}`}
 >
-  {text}
+  <slot />
 </h2>

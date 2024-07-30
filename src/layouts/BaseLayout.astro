@@ -56,13 +56,13 @@ const locale = Astro.currentLocale;
 
     <ViewTransitions />
   </head>
-  <body class="bg-black text-white font-mono min-h-screen">
+  <body class="bg-black text-white font-mono lg:text-[18px] min-h-screen">
     <Navbar />
     <div class="mx-6 xl:max-w-6xl xl:mx-auto">
       <Line />
     </div>
     <main
-      class="flex flex-col gap-6 mt-14 min-h-screen lg:mt-24 mx-6 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-5xl"
+      class="flex flex-col gap-6 mt-14 min-h-screen lg:mt-24 mx-6 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-4xl"
     >
       <slot />
     </main>
