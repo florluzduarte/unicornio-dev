@@ -10,6 +10,7 @@ import type {
 import { getCollection } from "astro:content";
 import { formatDateByLang } from "src/utils/formatDateByLang";
 import Line from "@components/ui/line/Line.astro";
+import TagsBadge from "@components/ui/badges/TagsBadge.astro";
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
@@ -39,12 +40,20 @@ const { Content } = await entry.render();
 <BaseLayout>
   <article>
     <div class="flex flex-col gap-4 mb-14">
+      <!-- Title -->
       <h1 class="font-sans text-[32px] lg:text-[40px] text-pink font-bold">
         {entry.data.title}
       </h1>
-      <p class="font-sans text-sm font-bold text-gray-100">
+
+      <!-- Publish Date -->
+      <p class="font-sans text-sm font-bold text-gray-100 mb-4">
         {"Fecha de publicacion: " + formattedDate}
       </p>
+
+      <!-- Tags -->
+      <ul class="flex flex-wrap gap-3">
+        {entry.data.tags.map((tag: string) => <TagsBadge tag={tag} />)}
+      </ul>
     </div>
     <Line />
     <div class="flex flex-col gap-8 lg:gap-10 my-14">
