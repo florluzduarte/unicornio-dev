@@ -1,3 +1,4 @@
+import type { GetStaticPathsItem, GetStaticPathsResult } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 export interface BlogFromSlug {
@@ -14,6 +15,8 @@ export interface BlogProps {
   entry: CollectionEntry<"blog">;
 }
 
+export type BlogPosts = CollectionEntry<"blog">;
+
 export interface BlogPostData {
   isDraft: boolean;
   title: string;
@@ -23,4 +26,14 @@ export interface BlogPostData {
   githubUrl: string;
   language: "es" | "en";
   tags: string[];
+}
+
+export interface DynamicTags extends GetStaticPathsItem {
+  params: {
+    tag: string;
+    lang: string;
+  },
+  props: {
+    posts: BlogPosts[];
+  },
 }

@@ -1,0 +1,67 @@
+---
+import BlogArticle from "@components/blog/blog-article/BlogArticle.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type {
+  BlogPosts,
+  DynamicTags,
+} from "@type/content-collections/blog-collection-types";
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async (): Promise<DynamicTags[]> => {
+  // Traer todos los posteos de la colección
+  const allBlogPosts = await getCollection("blog");
+
+  // Generar dinámicamente los tags según los posteos
+  const uniqueTags = [
+    ...new Set(allBlogPosts.map((post: BlogPosts) => post.data.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allBlogPosts.filter((post: BlogPosts) =>
+      post.data.tags.includes(tag),
+    );
+
+    // const paths: DynamicTags = filteredPosts.map((post) => {
+    //   const [lang, ...slug] = post.slug.split("/");
+    //   return {
+    //     params: {
+    //       tag: tag as string,
+    //       lang: lang,
+    //       slug: slug.join("/"),
+    //     },
+    //     props: { posts: filteredPosts as BlogProps[] },
+    //   };
+    // });
+
+    const paths: DynamicTags = {
+      params: {
+        tag: tag as string,
+        lang: "es",
+      },
+      props: { posts: filteredPosts },
+    };
+
+    return paths;
+  });
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout>
+  <p>Posts tagged with {tag}</p>
+  <ul>
+    {
+      posts.map((post, index) => (
+        <BlogArticle
+          data={post.data}
+          lang={post.data.language}
+          slug={post.slug}
+          index={index}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>

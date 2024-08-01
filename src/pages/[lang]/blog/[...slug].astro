@@ -9,6 +9,7 @@ import type {
 } from "@type/content-collections/blog-collection-types";
 import { getCollection } from "astro:content";
 import { formatDateByLang } from "src/utils/formatDateByLang";
+import { useTranslations } from "@translate/utils/i18n-utils";
 import Line from "@components/ui/line/Line.astro";
 import TagsBadge from "@components/ui/badges/TagsBadge.astro";
 
@@ -33,6 +34,7 @@ export async function getStaticPaths(): Promise<BlogFromSlug> {
 
 const { lang } = Astro.params as Params;
 const { entry } = Astro.props as BlogProps;
+const t = useTranslations(lang as Lang);
 const formattedDate = formatDateByLang(entry, lang as Lang);
 const { Content } = await entry.render();
 ---
@@ -47,7 +49,7 @@ const { Content } = await entry.render();
 
       <!-- Publish Date -->
       <p class="font-sans text-sm font-bold text-gray-100 mb-4">
-        {"Fecha de publicacion: " + formattedDate}
+        {t("blog.publish") + formattedDate}
       </p>
 
       <!-- Tags -->

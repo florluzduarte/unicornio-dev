@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType } from "astro";
 import type { BlogPostData } from "@type/content-collections/blog-collection-types";
+import type { Lang } from "@translate/dictionary";
 import { getCollection } from "astro:content";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -29,7 +30,7 @@ const allPostsEnglish = await getCollection(
 );
 
 const { lang } = Astro.params as Params;
-const t = useTranslations(lang);
+const t = useTranslations(lang as Lang);
 ---
 
 <BaseLayout>
@@ -42,13 +43,17 @@ const t = useTranslations(lang);
             (
               { data, slug }: { data: BlogPostData; slug: string },
               index: number,
-            ) => <BlogArticle data={data} slug={slug} index={index} />,
+            ) => (
+              <BlogArticle data={data} slug={slug} index={index} lang={lang} />
+            ),
           )
         : allPostsEnglish.map(
             (
               { data, slug }: { data: BlogPostData; slug: string },
               index: number,
-            ) => <BlogArticle data={data} slug={slug} index={index} />,
+            ) => (
+              <BlogArticle data={data} slug={slug} index={index} lang={lang} />
+            ),
           )
     }
   </div>
