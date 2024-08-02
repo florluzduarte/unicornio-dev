@@ -36,6 +36,7 @@ export const dictionary = {
     "talks.title": "Charlas Tech",
     "blog.publish": "Fecha de publicación: ",
     "blog.tags.title": "Posteos sobre: ",
+    "blog.tags.aria": "Filtrar por tag",
   },
   en: {
     "nav.home": "Home",
@@ -63,5 +64,6 @@ export const dictionary = {
     "talks.title": "Tech Talks",
     "blog.publish": "Publish Date: ",
     "blog.tags.title": "Posts tagged with: ",
+    "blog.tags.aria": "Filter by tag",
   }
 } as const;
