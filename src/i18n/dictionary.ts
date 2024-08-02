@@ -34,7 +34,8 @@ export const dictionary = {
     "theme.title": "Unicornio dark en español",
     "communities.title": "Comunidades",
     "talks.title": "Charlas Tech",
-    "blog.publish": "Fecha de publicación: "
+    "blog.publish": "Fecha de publicación: ",
+    "blog.tags.title": "Posteos sobre: ",
   },
   en: {
     "nav.home": "Home",
@@ -60,6 +61,7 @@ export const dictionary = {
     "theme.title": "Unicornio Dark in english",
     "communities.title": "Communities",
     "talks.title": "Tech Talks",
-    "blog.publish": "Publish Date: "
+    "blog.publish": "Publish Date: ",
+    "blog.tags.title": "Posts tagged with: ",
   }
 } as const;
