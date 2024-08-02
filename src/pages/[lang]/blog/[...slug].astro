@@ -1,33 +1,69 @@
 ---
+import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import type { Lang } from "@translate/dictionary";
 import type { CollectionEntry } from "astro:content";
+import type {
+  BlogFromSlug,
+  BlogProps,
+} from "@type/content-collections/blog-collection-types";
 import { getCollection } from "astro:content";
 import { formatDateByLang } from "src/utils/formatDateByLang";
+import { useTranslations } from "@translate/utils/i18n-utils";
+import Line from "@components/ui/line/Line.astro";
+import TagsBadge from "@components/ui/badges/TagsBadge.astro";
 
-export async function getStaticPaths() {
-  const pages = await getCollection("blog");
-  const paths = pages.map((page: CollectionEntry<"blog">) => {
-    const [lang, ...slug] = page.slug.split("/");
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+export async function getStaticPaths(): Promise<BlogFromSlug> {
+  const blogEntries = await getCollection("blog");
+  const paths = blogEntries.map((entry: CollectionEntry<"blog">) => {
+    const [lang, ...slug] = entry.slug.split("/");
     return {
       params: {
         lang: lang,
-        slug: slug.join("/") || undefined,
+        slug: slug.join("/"),
       },
-      props: page,
+      props: {
+        entry: entry,
+      },
     };
   });
-  return paths;
+  return paths satisfies GetStaticPaths;
 }
 
-const { lang } = Astro.params;
-const page = Astro.props;
-const formattedDate = formatDateByLang(page, lang as Lang);
-const { Content } = await page.render();
+const { lang } = Astro.params as Params;
+const { entry } = Astro.props as BlogProps;
+const t = useTranslations(lang as Lang);
+const formattedDate = formatDateByLang(entry, lang as Lang);
+const { Content } = await entry.render();
 ---
 
 <BaseLayout>
-  <h1>{page.data.title}</h1>
-  <p>{formattedDate}</p>
-  <Content />
+  <article>
+    <div class="flex flex-col gap-4 mb-14">
+      <!-- Title -->
+      <h1 class="font-sans text-[32px] lg:text-[40px] text-pink font-bold">
+        {entry.data.title}
+      </h1>
+
+      <!-- Publish Date -->
+      <p class="font-sans text-sm font-bold text-gray-100 mb-4">
+        {t("blog.publish") + formattedDate}
+      </p>
+
+      <!-- Tags -->
+      <ul class="flex flex-wrap gap-3">
+        {
+          entry.data.tags.map((tag: string) => (
+            <TagsBadge tag={tag} lang={lang} />
+          ))
+        }
+      </ul>
+    </div>
+    <Line />
+    <div class="flex flex-col gap-8 lg:gap-10 my-14">
+      <Content />
+    </div>
+  </article>
 </BaseLayout>

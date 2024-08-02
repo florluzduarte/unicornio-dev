@@ -25,6 +25,7 @@ export const dictionary = {
     "nav.aria.linklogo": "Ir a la página de inicio de Florencia Luz Duarte (@unicornio.dev)",
     "footer.nav.aria": "Menú secundario",
     "footer.socialmedia.aria": "Links a redes sociales",
+    "footer.license": "Este trabajo está licenciado con",
     "home.title": "Página de Flor",
     "about.title": "Sobre Flor",
     "blog.title": "Blog en español",
@@ -33,6 +34,9 @@ export const dictionary = {
     "theme.title": "Unicornio dark en español",
     "communities.title": "Comunidades",
     "talks.title": "Charlas Tech",
+    "blog.publish": "Fecha de publicación: ",
+    "blog.tags.title": "Posteos sobre: ",
+    "blog.tags.aria": "Filtrar por tag",
   },
   en: {
     "nav.home": "Home",
@@ -49,6 +53,7 @@ export const dictionary = {
     "nav.aria.linklogo": "Go to Florencia Luz Duarte's (@unicornio.dev) home page",
     "footer.nav.aria": "Secondary menu",
     "footer.socialmedia.aria": "Links to social media",
+    "footer.license": "This work is licensed under",
     "home.title": "Flor Page",
     "about.title": "About Flor",
     "blog.title": "Blog in English",
@@ -57,5 +62,8 @@ export const dictionary = {
     "theme.title": "Unicornio Dark in english",
     "communities.title": "Communities",
     "talks.title": "Tech Talks",
+    "blog.publish": "Publish Date: ",
+    "blog.tags.title": "Posts tagged with: ",
+    "blog.tags.aria": "Filter by tag",
   }
 } as const;

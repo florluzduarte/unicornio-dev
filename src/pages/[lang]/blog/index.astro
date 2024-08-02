@@ -1,17 +1,70 @@
 ---
-import type { GetStaticPaths } from "astro";
+import type { GetStaticPaths, InferGetStaticParamsType } from "astro";
+import type { BlogPostData } from "@type/content-collections/blog-collection-types";
 import type { Lang } from "@translate/dictionary";
+import { getCollection } from "astro:content";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
+import Line from "@components/ui/line/Line.astro";
+import BlogArticle from "@components/blog/blog-article/BlogArticle.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }) satisfies GetStaticPaths;
 
-const lang = Astro.currentLocale as Lang;
-const t = useTranslations(lang);
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const allPostsSpanish = await getCollection(
+  "blog",
+  ({ data }: { data: BlogPostData }) => {
+    return data.language === "es";
+  },
+);
+
+const allPostsEnglish = await getCollection(
+  "blog",
+  ({ data }: { data: BlogPostData; slug: string }) => {
+    return data.language === "en";
+  },
+);
+
+const { lang } = Astro.params as Params;
+const t = useTranslations(lang as Lang);
 ---
 
 <BaseLayout>
-  <h1>{t("blog.title")}</h1>
+  <Heading1>{t("blog.title")}</Heading1>
+  <div class="mb-14">
+    <Line />
+    {
+      lang === "es"
+        ? allPostsSpanish.map(
+            (
+              { data, slug }: { data: BlogPostData; slug: string },
+              index: number,
+            ) => (
+              <BlogArticle
+                data={data}
+                slug={slug}
+                index={index}
+                lang={lang as Lang}
+              />
+            ),
+          )
+        : allPostsEnglish.map(
+            (
+              { data, slug }: { data: BlogPostData; slug: string },
+              index: number,
+            ) => (
+              <BlogArticle
+                data={data}
+                slug={slug}
+                index={index}
+                lang={lang as Lang}
+              />
+            ),
+          )
+    }
+  </div>
 </BaseLayout>
