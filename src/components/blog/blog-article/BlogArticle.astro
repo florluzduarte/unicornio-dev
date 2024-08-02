@@ -9,7 +9,7 @@ interface Props {
   slug: string;
   data: BlogPostData;
   index: number;
-  lang: string;
+  lang: Lang;
 }
 
 const { slug, data, index, lang } = Astro.props;
@@ -30,7 +30,7 @@ const linkColors = [
     >
     <p>{data.description}</p>
     <ul class="flex flex-wrap gap-3">
-      {data.tags.map((tag) => <TagsBadge tag={tag} />)}
+      {data.tags.map((tag) => <TagsBadge tag={tag} lang={lang} />)}
     </ul>
   </article>
   <Line />
