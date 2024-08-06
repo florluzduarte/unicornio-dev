@@ -1,6 +1,9 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType } from "astro";
-import type { BlogPostData } from "@type/content-collections/blog-collection-types";
+import type {
+  BlogPostData,
+  BlogPosts,
+} from "@type/content-collections/blog-collection-types";
 import type { Lang } from "@translate/dictionary";
 import { getCollection } from "astro:content";
 import { useTranslations } from "@translate/utils/i18n-utils";
@@ -15,18 +18,28 @@ export const getStaticPaths = (() => {
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
-const allPostsSpanish = await getCollection(
+const allPostsSpanish: BlogPosts[] = await getCollection(
   "blog",
   ({ data }: { data: BlogPostData }) => {
     return data.language === "es";
   },
 );
 
-const allPostsEnglish = await getCollection(
+const spanishPostsSortedByDate = allPostsSpanish.sort(
+  (postA, postB) =>
+    Date.parse(postB.data.publishDate) - Date.parse(postA.data.publishDate),
+);
+
+const allPostsEnglish: BlogPosts[] = await getCollection(
   "blog",
   ({ data }: { data: BlogPostData; slug: string }) => {
     return data.language === "en";
   },
+);
+
+const englishPostsSortedByDate = allPostsEnglish.sort(
+  (postA, postB) =>
+    Date.parse(postB.data.publishDate) - Date.parse(postA.data.publishDate),
 );
 
 const { lang } = Astro.params as Params;
@@ -39,7 +52,7 @@ const t = useTranslations(lang as Lang);
     <Line />
     {
       lang === "es"
-        ? allPostsSpanish.map(
+        ? spanishPostsSortedByDate.map(
             (
               { data, slug }: { data: BlogPostData; slug: string },
               index: number,
@@ -52,7 +65,7 @@ const t = useTranslations(lang as Lang);
               />
             ),
           )
-        : allPostsEnglish.map(
+        : englishPostsSortedByDate.map(
             (
               { data, slug }: { data: BlogPostData; slug: string },
               index: number,

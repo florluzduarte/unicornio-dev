@@ -18,4 +18,11 @@ export default defineConfig({
       en: "es"
     }
   },
+  markdown: {
+    shikiConfig: {
+      theme: "tokyo-night",
+      langs: [],
+      wrap: true,
+    }
+  }
 });
