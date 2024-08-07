@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { englishTechTalks, spanishTechTalks } from "@data/techTalksData";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -14,4 +15,25 @@ const t = useTranslations(lang);
 
 <BaseLayout>
   <h1>{t("talks.title")}</h1>
+  {
+    lang === "es" ? (
+      <div>
+        {spanishTechTalks.map((talk) => (
+          <div>
+            <p class="font-bold">{talk.title}</p>
+            <p>{talk.description}</p>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div>
+        {englishTechTalks.map((talk) => (
+          <div>
+            <p class="font-bold">{talk.title}</p>
+            <p>{talk.description}</p>
+          </div>
+        ))}
+      </div>
+    )
+  }
 </BaseLayout>
