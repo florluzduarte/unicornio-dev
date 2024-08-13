@@ -16,7 +16,6 @@ export interface ISocialMediaLink {
 };
 
 export type Languages = "Español" | "Inglés" | "Spanish" | "English";
-export type ResourceStatus = string | "No disponible" | "Not available";
 export type ShareLink = string | undefined;
 
 export interface ITechTalks {
@@ -27,8 +26,9 @@ export interface ITechTalks {
   hostLink: ShareLink;
   event: string;
   eventLink: ShareLink;
-  videoLink: ResourceStatus;
-  slidesLink: ResourceStatus;
+  videoLink: ShareLink;
+  videoId: ShareLink;
+  slidesLink: ShareLink;
   description: string;
   date: string;
 }

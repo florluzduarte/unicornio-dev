@@ -34,9 +34,12 @@ export const dictionary = {
     "theme.title": "Unicornio dark en español",
     "communities.title": "Comunidades",
     "talks.title": "Charlas Tech",
+    "talks.slides.link": "Descargá la presentación",
+    "talks.language": "Idioma",
     "blog.publish": "Fecha de publicación: ",
     "blog.tags.title": "Posteos sobre: ",
     "blog.tags.aria": "Filtrar por tag",
+    "thumbnail.aria": "Portada de video en YouTube",
   },
   en: {
     "nav.home": "Home",
@@ -62,8 +65,11 @@ export const dictionary = {
     "theme.title": "Unicornio Dark in english",
     "communities.title": "Communities",
     "talks.title": "Tech Talks",
+    "talks.slides.link": "Download the presentation",
+    "talks.language": "Language",
     "blog.publish": "Publish Date: ",
     "blog.tags.title": "Posts tagged with: ",
     "blog.tags.aria": "Filter by tag",
+    "thumbnail.aria": "YouTube cover"
   }
 } as const;
