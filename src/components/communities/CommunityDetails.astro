@@ -1,0 +1,86 @@
+---
+import SimpleLink from "@components/ui/links/SimpleLink.astro";
+import type { Lang } from "@translate/dictionary";
+import { useTranslations } from "@translate/utils/i18n-utils";
+import type { ICommunities } from "@type/ui-types";
+
+interface Props {
+  community: ICommunities;
+}
+
+const { community } = Astro.props;
+const { name, description, invite, web, linkedin, x, platform, language } =
+  community;
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+---
+
+<div class="flow-root rounded-lg border border-gray-100 py-3">
+  <dl class="-my-3 divide-y divide-gray-100 text-sm">
+    <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+      <dt class="text-white font-bold">{t("communities.name")}</dt>
+      <dd class="text-gray-100 sm:col-span-2">{name}</dd>
+    </div>
+
+    <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+      <dt class="text-white font-bold">{t("communities.description")}</dt>
+      <dd class="text-gray-100 sm:col-span-2">{description}</dd>
+    </div>
+
+    <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+      <dt class="text-white font-bold">{t("talks.language")}</dt>
+      <dd class="text-gray-100 sm:col-span-2">{language}</dd>
+    </div>
+
+    <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+      <dt class="text-white font-bold">{t("communities.platform")}</dt>
+      <dd class="text-gray-100 sm:col-span-2">{platform}</dd>
+    </div>
+
+    {
+      invite && (
+        <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-white font-bold">{t("communities.invite")}</dt>
+          <dd class="text-gray-100 sm:col-span-2">
+            <SimpleLink path={invite}>
+              {t("communities.invite.text")}
+            </SimpleLink>
+          </dd>
+        </div>
+      )
+    }
+
+    {
+      web && (
+        <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-white font-bold">Web</dt>
+          <dd class="text-gray-100 sm:col-span-2">
+            <SimpleLink path={web}>{web}</SimpleLink>
+          </dd>
+        </div>
+      )
+    }
+
+    {
+      x && (
+        <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-white font-bold">X</dt>
+          <dd class="text-gray-100 sm:col-span-2">
+            <SimpleLink path={x}>{x}</SimpleLink>
+          </dd>
+        </div>
+      )
+    }
+
+    {
+      linkedin && (
+        <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-white font-bold">LinkedIn</dt>
+          <dd class="text-gray-100 sm:col-span-2">
+            <SimpleLink path={linkedin}>LinkedIn Link</SimpleLink>
+          </dd>
+        </div>
+      )
+    }
+  </dl>
+</div>

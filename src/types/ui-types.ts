@@ -17,6 +17,7 @@ export interface ISocialMediaLink {
 
 export type Languages = "Español" | "Inglés" | "Spanish" | "English";
 export type ShareLink = string | undefined;
+export type Platform = "Discord" | "Slack";
 
 export interface ITechTalks {
   title: string;
@@ -31,4 +32,18 @@ export interface ITechTalks {
   slidesLink: ShareLink;
   description: string;
   date: string;
+};
+
+export interface ICommunities {
+  name: string;
+  order: number;
+  description: string;
+  invite: ShareLink;
+  platform: Platform;
+  language: Languages;
+  web: ShareLink;
+  x: ShareLink;
+  linkedin: ShareLink;
+  image: string;
+  imageAlt: string;
 }

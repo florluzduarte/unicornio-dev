@@ -1,8 +1,11 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
+import type { GetStaticPaths } from "astro";
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
-import type { GetStaticPaths } from "astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CommunityDetails from "@components/communities/CommunityDetails.astro";
+import { spanishCommunities, englishCommunities } from "@data/communitiesData";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -13,5 +16,16 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <h1>{t("communities.title")}</h1>
+  <Heading1>{t("communities.title")}</Heading1>
+  <div class="grid grid-cols-1 gap-14 mb-14">
+    {
+      lang == "es"
+        ? spanishCommunities.map((community) => (
+            <CommunityDetails {community} />
+          ))
+        : englishCommunities.map((community) => (
+            <CommunityDetails {community} />
+          ))
+    }
+  </div>
 </BaseLayout>
