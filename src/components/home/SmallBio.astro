@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import type { Lang } from "@translate/dictionary";
+import { useTranslations } from "@translate/utils/i18n-utils";
+import Paragraph from "@components/ui/text-components/Paragraph.astro";
+import florImg from "@assets/about/flor-profile-img.png";
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+---
+
+<section class="flex flex-col lg:flex-row gap-8 lg:gap-14 lg:items-center">
+  <Image src={florImg} alt="Flor Luz Duarte" />
+  <Paragraph text={t("home.small.bio")} />
+</section>
