@@ -25,7 +25,7 @@ export const spanishCommunities: ICommunities[] = [
     web: undefined,
     x: "https://x.com/lacomudev",
     linkedin: "https://www.linkedin.com/company/lacomudev/",
-    image: "",
+    image: "/src/assets/communities/la-comu-dev-logo.jpg",
     imageAlt: "Logo de La Comu Dev",
   },
   {
@@ -38,7 +38,7 @@ export const spanishCommunities: ICommunities[] = [
     web: undefined,
     x: "https://x.com/MermeladaTech",
     linkedin: "https://www.linkedin.com/company/mermelada-tech/",
-    image: "",
+    image: "/src/assets/communities/mermelada-tech-logo.jpg",
     imageAlt: "Logo de Mermelada Tech",
   },
   {
@@ -51,7 +51,7 @@ export const spanishCommunities: ICommunities[] = [
     web: undefined,
     x: undefined,
     linkedin: undefined,
-    image: "",
+    image: "/src/assets/communities/astro-devs-latam-logo.jpg",
     imageAlt: "Logo de Astro Devs Latam",
   },
   {
@@ -64,7 +64,7 @@ export const spanishCommunities: ICommunities[] = [
     web: "https://cs.ossu.dev/",
     x: "https://x.com/_OSSU_",
     linkedin: "https://www.linkedin.com/school/ossu/",
-    image: "",
+    image: "/src/assets/communities/ossu-logo.jpg",
     imageAlt: "Logo de Open Source Society University",
   },
   {
@@ -77,7 +77,7 @@ export const spanishCommunities: ICommunities[] = [
     web: "https://unicornio.dev",
     x: "https://x.com/florluzduarte",
     linkedin: "https://linkedin.com/in/florluzduarte",
-    image: "",
+    image: "/src/assets/communities/unicornio-dev-logo.jpg",
     imageAlt: "Logo de la comunidad de Unicornio Dev",
   }
 ];
@@ -94,7 +94,7 @@ export const englishCommunities: ICommunities[] = [
     web: undefined,
     x: "https://x.com/lacomudev",
     linkedin: "https://www.linkedin.com/company/lacomudev/",
-    image: "",
+    image: "/src/assets/communities/la-comu-dev-logo.jpg",
     imageAlt: "Logo La Comu Dev",
   },
   {
@@ -107,7 +107,7 @@ export const englishCommunities: ICommunities[] = [
     web: undefined,
     x: "https://x.com/MermeladaTech",
     linkedin: "https://www.linkedin.com/company/mermelada-tech/",
-    image: "",
+    image: "/src/assets/communities/mermelada-tech-logo.jpg",
     imageAlt: "Logo Mermelada Tech",
   },
   {
@@ -120,7 +120,7 @@ export const englishCommunities: ICommunities[] = [
     web: undefined,
     x: undefined,
     linkedin: undefined,
-    image: "",
+    image: "/src/assets/communities/astro-devs-latam-logo.jpg",
     imageAlt: "Logo Astro Devs Latam",
   },
   {
@@ -133,7 +133,7 @@ export const englishCommunities: ICommunities[] = [
     web: "https://cs.ossu.dev/",
     x: "https://x.com/_OSSU_",
     linkedin: "https://www.linkedin.com/school/ossu/",
-    image: "",
+    image: "/src/assets/communities/ossu-logo.jpg",
     imageAlt: "Logo Open Source Society University",
   },
   {
@@ -146,7 +146,7 @@ export const englishCommunities: ICommunities[] = [
     web: "https://unicornio.dev",
     x: "https://x.com/florluzduarte",
     linkedin: "https://linkedin.com/in/florluzduarte",
-    image: "",
+    image: "/src/assets/communities/unicornio-dev-logo.jpg",
     imageAlt: "Logo Unicornio Dev",
   }
 ];
