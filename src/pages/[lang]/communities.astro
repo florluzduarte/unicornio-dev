@@ -6,6 +6,7 @@ import Heading1 from "@components/ui/text-components/Heading1.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CommunityDetails from "@components/communities/CommunityDetails.astro";
 import { spanishCommunities, englishCommunities } from "@data/communitiesData";
+import CommunityIntro from "@components/communities/CommunityIntro.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -17,6 +18,7 @@ const t = useTranslations(lang);
 
 <BaseLayout>
   <Heading1>{t("communities.title")}</Heading1>
+  <CommunityIntro />
   <div class="grid grid-cols-1 gap-14 mb-14">
     {
       lang == "es"

@@ -2,15 +2,13 @@ import type { ICommunities } from "@type/ui-types";
 
 export const spanishCommunitiesDescription: string[] = [
   "Una buena parte del trabajo Open Source que realizo está enfocado en crear, mantener y colaborar activamente con comunidades abiertas enfocadas en Tecnología.",
-  "Creo que formar parte de estos espacios de interacción, soporte ante consultas, sociabilización, acompañamiento y por que no amistad, es vital para hacer de nuestras carreras en tecnología una experiencia más profunda.",
-  "Es con otros donde crecemos de mejor manera y aprendemos todo lo que tenemos para dar.",
+  "Creo que formar parte de estos espacios de interacción, soporte ante consultas, sociabilización, acompañamiento y por que no amistad, es vital para hacer de nuestras carreras en tecnología una experiencia más profunda. Es con otros donde crecemos de mejor manera y aprendemos todo lo que tenemos para dar.",
   "Por eso quiero recomendarles los espacios de los cuales formo parte (de distintas maneras) como punto de partida para aquellos que estén buscando unirse a una comunidad:",
 ];
 
 export const englishCommunitiesDescription: string[] = [
   "A big part of the Open Source work I do is targeted to create, maintain, and actively collaborate with Tech Communities.",
-  "I believe that belonging to a community, interacting with other devs, having time and space to ask questions and provide answers, and even making new friends are vital to having a more fulfilled career.",
-  "Is together with others that we flourish and reach our best selves",
+  "I believe that belonging to a community, interacting with other devs, having time and space to ask questions and provide answers, and even making new friends are vital to having a more fulfilled career. Is together with others that we flourish and reach our best selves",
   "That's why I want to recommend all these groups I form part of (in different ways) as a starting point in your journey to finding the right community for you:"
 ];
 
