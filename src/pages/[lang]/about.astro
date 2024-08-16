@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -13,5 +14,5 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <h1>{t("about.title")}</h1>
+  <Heading1>{t("about.title")}</Heading1>
 </BaseLayout>
