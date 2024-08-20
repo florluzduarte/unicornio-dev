@@ -82,7 +82,7 @@ export const spanishHobbies: ISectionParagraph[] = [
     order: 2,
   },
   {
-    text: "El café forma parte de mí, lo necesito física y espiritualmente para vivir ☕️",
+    text: "El café forma parte de mí, lo necesito física y espiritualmente para vivir.",
     order: 3,
   },
   {
@@ -90,7 +90,7 @@ export const spanishHobbies: ISectionParagraph[] = [
     order: 4,
   },
   {
-    text: "Team frío ❄️ por siempre. Cada año que pasa soporto menos el verano y crecen mis ganas de huir para siempre de Buenos Aires.",
+    text: "Team frío por siempre. Cada año que pasa soporto menos el verano y crecen mis ganas de huir para siempre de Buenos Aires.",
     order: 5,
   },
   {
