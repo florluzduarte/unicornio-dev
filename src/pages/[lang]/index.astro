@@ -1,18 +1,19 @@
 ---
 import type { GetStaticPaths } from "astro";
-import type { Lang } from "@translate/dictionary";
-import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import SmallBio from "@components/home/SmallBio.astro";
+import LatestPosts from "@components/home/LatestPosts.astro";
+import Line from "@components/ui/line/Line.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }) satisfies GetStaticPaths;
-
-const lang = Astro.currentLocale as Lang;
-const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <SmallBio />
+  <div class="flex flex-col gap-14 mb-8">
+    <SmallBio />
+    <Line />
+    <LatestPosts />
+  </div>
 </BaseLayout>
