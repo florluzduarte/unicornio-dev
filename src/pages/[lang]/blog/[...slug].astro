@@ -12,6 +12,7 @@ import { formatDateByLang } from "src/utils/formatDateByLang";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import Line from "@components/ui/line/Line.astro";
 import TagsBadge from "@components/ui/badges/TagsBadge.astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 
@@ -43,9 +44,9 @@ const { Content } = await entry.render();
   <article>
     <div class="flex flex-col gap-4 mb-14">
       <!-- Title -->
-      <h1 class="font-sans text-[32px] lg:text-[40px] text-pink font-bold">
+      <Heading1>
         {entry.data.title}
-      </h1>
+      </Heading1>
 
       <!-- Publish Date -->
       <p class="font-sans text-sm font-bold text-gray-100 mb-4">

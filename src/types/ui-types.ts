@@ -46,4 +46,9 @@ export interface ICommunities {
   linkedin: ShareLink;
   image: string;
   imageAlt: string;
-}
+};
+
+export interface ISectionParagraph {
+  text: string;
+  order: number;
+};

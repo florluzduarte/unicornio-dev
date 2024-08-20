@@ -3,6 +3,21 @@ import type { GetStaticPaths } from "astro";
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
+import Heading2 from "@components/ui/text-components/Heading2.astro";
+import ParagraphGenerator from "@components/ui/text-components/ParagraphGenerator.astro";
+import {
+  spanishAboutMeIntro,
+  englishAboutMeIntro,
+  spanishCareerChange,
+  englishCareerChange,
+  spanishSelfTaught,
+  englishSelfTaught,
+  spanishGoals,
+  englishGoals,
+  spanishHobbies,
+  englishHobbies,
+} from "@data/aboutMeData";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -13,5 +28,26 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout>
-  <h1>{t("about.title")}</h1>
+  <Heading1>{t("about.title")}</Heading1>
+  <ParagraphGenerator
+    englishTexts={englishAboutMeIntro}
+    spanishTexts={spanishAboutMeIntro}
+  />
+  <Heading2 color="text-white">{t("about.career.change")}</Heading2>
+  <ParagraphGenerator
+    englishTexts={spanishCareerChange}
+    spanishTexts={englishCareerChange}
+  />
+  <Heading2 color="text-white">{t("about.self.taught")}</Heading2>
+  <ParagraphGenerator
+    englishTexts={englishSelfTaught}
+    spanishTexts={spanishSelfTaught}
+  />
+  <Heading2 color="text-white">{t("about.goals")}</Heading2>
+  <ParagraphGenerator englishTexts={englishGoals} spanishTexts={spanishGoals} />
+  <Heading2 color="text-white">{t("about.hobbies")}</Heading2>
+  <ParagraphGenerator
+    englishTexts={englishHobbies}
+    spanishTexts={spanishHobbies}
+  />
 </BaseLayout>
