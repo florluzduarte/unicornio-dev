@@ -4,6 +4,7 @@ import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
+import Heading2 from "@components/ui/text-components/Heading2.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -15,4 +16,8 @@ const t = useTranslations(lang);
 
 <BaseLayout>
   <Heading1>{t("about.title")}</Heading1>
+  <Heading2 color="text-white">{t("about.career.change")}</Heading2>
+  <Heading2 color="text-white">{t("about.self.taught")}</Heading2>
+  <Heading2 color="text-white">{t("about.goals")}</Heading2>
+  <Heading2 color="text-white">{t("about.hobbies")}</Heading2>
 </BaseLayout>

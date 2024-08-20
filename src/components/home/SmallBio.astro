@@ -5,6 +5,7 @@ import { useTranslations } from "@translate/utils/i18n-utils";
 import Paragraph from "@components/ui/text-components/Paragraph.astro";
 import florImg from "@assets/about/flor-profile-img.png";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
+import InternalLink from "@components/ui/links/InternalLink.astro";
 
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
@@ -17,5 +18,6 @@ const t = useTranslations(lang);
       <Heading1 color="text-white">{t("home.title")}</Heading1>
     </span>
     <Paragraph text={t("home.small.bio")} />
+    <InternalLink path={`/${lang}/about/`}>{t("home.about.link")}</InternalLink>
   </div>
 </section>
