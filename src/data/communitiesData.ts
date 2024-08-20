@@ -8,7 +8,7 @@ export const spanishCommunitiesDescription: string[] = [
 
 export const englishCommunitiesDescription: string[] = [
   "A big part of the Open Source work I do is targeted to create, maintain, and actively collaborate with Tech Communities.",
-  "I believe that belonging to a community, interacting with other devs, having time and space to ask questions and provide answers, and even making new friends are vital to having a more fulfilled career. Is together with others that we flourish and reach our best selves",
+  "I believe that belonging to a community, interacting with other devs, having time and space to ask questions and provide answers, and even making new friends are vital to having a more fulfilled career. Is together with others that we flourish and reach our best selves.",
   "That's why I want to recommend all these groups I form part of (in different ways) as a starting point in your journey to finding the right community for you:"
 ];
 

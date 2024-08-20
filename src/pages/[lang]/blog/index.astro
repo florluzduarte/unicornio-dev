@@ -10,7 +10,7 @@ import { useTranslations } from "@translate/utils/i18n-utils";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
 import Line from "@components/ui/line/Line.astro";
-import BlogArticle from "@components/blog/blog-article/BlogArticle.astro";
+import BlogArticle from "@components/blog/BlogArticle.astro";
 
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
