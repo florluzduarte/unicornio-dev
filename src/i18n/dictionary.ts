@@ -30,7 +30,7 @@ export const dictionary = {
     "home.small.bio": "Soy Desarrolladora de Software + Creadora de contenido técnico de Buenos Aires, Argentina. Cambié de carrera a los 30 años y me embarqué en un camino de aprendizaje autodidacta que espero nunca acabe. Unicornio Dev es mi espacio para aprender, divulgar, compartir y crear junto con la comunidad.",
     "home.about.link": "Conoce mi historia -->",
     "home.latest.articles": "Últimos artículos del blog",
-    "about.title": "Un poco sobre mi historia",
+    "about.title": "Algunas cosas sobre mi",
     "about.career.change": "Cambiando de carrera a los 30s",
     "about.self.taught": "Ser autodidacta y no morir en el intento",
     "about.goals": "Próximas Metas",

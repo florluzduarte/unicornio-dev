@@ -189,7 +189,7 @@ export const englishHobbies: ISectionParagraph[] = [
     order: 2,
   },
   {
-    text: "My favorite place in the world is Mendoza, Argentina. I hope to move there shortly. I believe Mendoza is by far the best Argentinian province (If you've never seen a picture of this place here are a few).",
+    text: "My favorite place in the world is Mendoza, Argentina. I hope to move there shortly. I believe Mendoza is by far the best Argentinian province.",
     order: 3,
   },
   {

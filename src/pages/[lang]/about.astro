@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import type { Lang } from "@translate/dictionary";
 import { useTranslations } from "@translate/utils/i18n-utils";
+import { Image } from "astro:assets";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
 import Heading2 from "@components/ui/text-components/Heading2.astro";
@@ -19,6 +20,9 @@ import {
   englishHobbies,
 } from "@data/aboutMeData";
 
+import florPic from "@assets/about/about-profile-picture.jpg";
+import cats from "@assets/about/about-cats.jpg";
+
 export const getStaticPaths = (() => {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }) satisfies GetStaticPaths;
@@ -29,6 +33,7 @@ const t = useTranslations(lang);
 
 <BaseLayout>
   <Heading1>{t("about.title")}</Heading1>
+  <Image src={florPic} alt="Florencia Luz Duarte" />
   <ParagraphGenerator
     englishTexts={englishAboutMeIntro}
     spanishTexts={spanishAboutMeIntro}
@@ -46,6 +51,7 @@ const t = useTranslations(lang);
   <Heading2 color="text-white">{t("about.goals")}</Heading2>
   <ParagraphGenerator englishTexts={englishGoals} spanishTexts={spanishGoals} />
   <Heading2 color="text-white">{t("about.hobbies")}</Heading2>
+  <Image src={cats} alt="" />
   <ParagraphGenerator
     englishTexts={englishHobbies}
     spanishTexts={spanishHobbies}
