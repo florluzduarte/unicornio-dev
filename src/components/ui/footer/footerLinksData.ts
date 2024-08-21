@@ -17,14 +17,14 @@ export const footerLinksData: INavbarItem[] = [
     translationKey: "nav.resources",
     subpath: "resources/",
   },
-  {
-    translationKey: "nav.tutorials",
-    subpath: "tutorials/",
-  },
-  {
-    translationKey: "nav.theme",
-    subpath: "theme/",
-  },
+  // {
+  //   translationKey: "nav.tutorials",
+  //   subpath: "tutorials/",
+  // },
+  // {
+  //   translationKey: "nav.theme",
+  //   subpath: "theme/",
+  // },
   {
     translationKey: "nav.talks",
     subpath: "talks/",

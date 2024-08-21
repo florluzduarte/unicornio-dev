@@ -6,6 +6,7 @@ import Heading2 from "@components/ui/text-components/Heading2.astro";
 import YoutubeThumbnail from "@components/ui/youtube-thumbnail/YoutubeThumbnail.astro";
 import Paragraph from "@components/ui/text-components/Paragraph.astro";
 import SimpleLink from "@components/ui/links/SimpleLink.astro";
+import Line from "@components/ui/line/Line.astro";
 
 interface Props {
   talk: ITechTalks;
@@ -28,7 +29,8 @@ const t = useTranslations(lang);
       </span>
     )
   }
-  <a href={talk.videoLink} target="_blank">
+  <a href={talk.videoLink} target="_blank" class="mb-14">
     <YoutubeThumbnail videoId={talk.videoId} />
   </a>
+  <Line />
 </div>

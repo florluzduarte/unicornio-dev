@@ -10,10 +10,18 @@ tags: ["ossu", "estudio", "carrera"]
 ---
 import Heading2 from "@components/ui/text-components/Heading2.astro";
 import SimpleLink from "@components/ui/links/SimpleLink.astro";
+import BlogSeriesAlert from "@components/blog/BlogSeriesAlert.astro";
+import { ossuSpanishSeriesAlert } from "@data/blog/seriesAlertData";
 
 export const components = {
   h2: Heading2,
 };
+
+<BlogSeriesAlert 
+  link={ossuSpanishSeriesAlert.link} 
+  title={ossuSpanishSeriesAlert.title} 
+  description={ossuSpanishSeriesAlert.description} 
+/>
 
 ![Open Society University logo](src/assets/blog/ossu/ossu.png)
 
