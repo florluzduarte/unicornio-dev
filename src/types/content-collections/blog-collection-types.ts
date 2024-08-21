@@ -36,4 +36,10 @@ export interface DynamicTags extends GetStaticPathsItem {
   props: {
     posts: BlogPosts[];
   },
-}
+};
+
+export interface BlogSeriesAlert {
+  title: string;
+  description: string;
+  link: string;
+};
