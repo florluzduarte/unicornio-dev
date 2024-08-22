@@ -52,3 +52,10 @@ export interface ISectionParagraph {
   text: string;
   order: number;
 };
+
+export interface IResource {
+  title: string;
+  order: number;
+  description: string;
+  path: string;
+};
