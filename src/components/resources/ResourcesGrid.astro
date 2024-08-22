@@ -1,33 +1,15 @@
 ---
-import Heading2 from "@components/ui/text-components/Heading2.astro";
+import type { Lang } from "@translate/dictionary";
+import { spanishResources, englishResources } from "@data/resourcesData";
+import ResourceCard from "./ResourceCard.astro";
+
+const lang = Astro.currentLocale as Lang;
 ---
 
-<ul class="mt-4 space-y-2">
-  <li>
-    <a
-      href="#"
-      class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink"
-    >
-      <Heading2>Project A</Heading2>
-
-      <p class="mt-1 text-gray-100">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-        consequuntur deleniti, unde ab ut in!
-      </p>
-    </a>
-  </li>
-
-  <li>
-    <a
-      href="#"
-      class="block h-full rounded-lg border border-gray-700 p-4 hover:border-pink-600"
-    >
-      <strong class="font-medium text-white">Project B</strong>
-
-      <p class="mt-1 text-xs font-medium text-gray-300">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente cumque
-        saepe sit.
-      </p>
-    </a>
-  </li>
+<ul class="flex flex-col gap-8 my-8">
+  {
+    lang == "es"
+      ? spanishResources.map((resource) => <ResourceCard resource={resource} />)
+      : englishResources.map((resource) => <ResourceCard resource={resource} />)
+  }
 </ul>
