@@ -1,0 +1,19 @@
+---
+import Heading1 from "@components/ui/text-components/Heading1.astro";
+import { Image } from "astro:assets";
+import illustration404 from "@assets/general/page-not-found.png";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+    <div class="px-4 my-14">
+        <div class="text-center flex flex-col items-center gap-6">
+            <!-- Illustration -->
+            <Image src={illustration404} alt="" />
+
+            <Heading1>Uh-oh!</Heading1>
+
+            <p class="text-gray-100">404 | Page Not Found</p>
+        </div>
+    </div>
+</BaseLayout>
