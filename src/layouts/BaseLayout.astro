@@ -1,29 +1,40 @@
 ---
-import "dracula-ui/styles/dracula-ui.css";
-import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+// Supports weights 100-900
+import "@fontsource-variable/inter";
+import "@fontsource/istok-web";
+
+import Navbar from "@components/ui/navbar/Navbar.astro";
+import Footer from "@components/ui/footer/Footer.astro";
+import Line from "@components/ui/line/Line.astro";
 
 export interface Props {
   title?: string;
   description?: string;
   image?: string;
+  urlPath?: string;
 }
 
 const {
-  title = "unicornio.dev",
+  title = "Florencia Luz Duarte | unicornio.dev",
   description = "Un sitio web orientado a brindar acompañamiento y contenidos de valor a personas que están aprendiendo a programar.",
-  image = "https://res.cloudinary.com/dfzncn1pd/image/upload/v1670853764/unicornio.dev/img-preview-meta-tags_xch6l3.png",
+  image = "/metatags-unicornio-links.png",
+  urlPath = "/",
 } = Astro.props;
+
+const urlFinal = `https://unicornio.dev${urlPath}`;
+
+const locale = Astro.currentLocale;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
 
     <!-- Primary Meta Tags -->
@@ -32,21 +43,30 @@ const {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://unicornio.dev/" />
+    <meta property="og:url" content={urlFinal} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://unicornio.dev/" />
+    <meta property="twitter:url" content={urlFinal} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
+
+    <ViewTransitions />
   </head>
-  <body>
+  <body class="bg-black text-gray-100 font-mono lg:text-[18px] min-h-screen">
     <Navbar />
-    <slot />
+    <div class="mx-6 xl:max-w-6xl xl:mx-auto">
+      <Line />
+    </div>
+    <main
+      class="flex flex-col gap-6 mt-14 min-h-screen lg:mt-24 mx-6 md:max-w-2xl md:mx-auto lg:max-w-3xl xl:max-w-4xl"
+    >
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

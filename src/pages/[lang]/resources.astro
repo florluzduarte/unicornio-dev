@@ -1,0 +1,22 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { Lang } from "@translate/dictionary";
+import { useTranslations } from "@translate/utils/i18n-utils";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
+import Line from "@components/ui/line/Line.astro";
+import ResourcesGrid from "@components/resources/ResourcesGrid.astro";
+
+export const getStaticPaths = (() => {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}) satisfies GetStaticPaths;
+
+const lang = Astro.currentLocale as Lang;
+const t = useTranslations(lang);
+---
+
+<BaseLayout>
+  <Heading1 color="text-white">{t("resources.title")}</Heading1>
+  <Line />
+  <ResourcesGrid />
+</BaseLayout>

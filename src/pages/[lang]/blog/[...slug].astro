@@ -1,0 +1,78 @@
+---
+import type { InferGetStaticParamsType, GetStaticPaths } from "astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type { Lang } from "@translate/dictionary";
+import type { CollectionEntry } from "astro:content";
+import type {
+  BlogFromSlug,
+  BlogProps,
+} from "@type/content-collections/blog-collection-types";
+import { getCollection } from "astro:content";
+import { formatDateByLang } from "src/utils/formatDateByLang";
+import { useTranslations } from "@translate/utils/i18n-utils";
+import Line from "@components/ui/line/Line.astro";
+import TagsBadge from "@components/ui/badges/TagsBadge.astro";
+import Heading1 from "@components/ui/text-components/Heading1.astro";
+import InternalLink from "@components/ui/links/InternalLink.astro";
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+export async function getStaticPaths(): Promise<BlogFromSlug> {
+  const blogEntries = await getCollection("blog");
+  const paths = blogEntries.map((entry: CollectionEntry<"blog">) => {
+    const [lang, ...slug] = entry.slug.split("/");
+    return {
+      params: {
+        lang: lang,
+        slug: slug.join("/"),
+      },
+      props: {
+        entry: entry,
+      },
+    };
+  });
+  return paths satisfies GetStaticPaths;
+}
+
+const { lang } = Astro.params as Params;
+const { entry } = Astro.props as BlogProps;
+const t = useTranslations(lang as Lang);
+const formattedDate = formatDateByLang(entry, lang as Lang);
+const { Content } = await entry.render();
+---
+
+<BaseLayout>
+  <article>
+    <div class="flex flex-col gap-4 mb-14">
+      <InternalLink path={`/${lang}/blog`} color="text-orange"
+        >{t("blog.back.link")}</InternalLink
+      >
+
+      <!-- Title -->
+      <Heading1>
+        {entry.data.title}
+      </Heading1>
+
+      <!-- Publish Date -->
+      <p class="font-sans text-sm font-bold text-gray-100 mb-4">
+        {t("blog.publish") + formattedDate}
+      </p>
+
+      <!-- Tags -->
+      <ul class="flex flex-wrap gap-3">
+        {
+          entry.data.tags.map((tag: string) => (
+            <TagsBadge tag={tag} lang={lang} />
+          ))
+        }
+      </ul>
+    </div>
+    <Line />
+    <div class="flex flex-col gap-8 lg:gap-10 my-14">
+      <Content />
+      <InternalLink path={`/${lang}/blog`} color="text-orange"
+        >{t("blog.back.link")}</InternalLink
+      >
+    </div>
+  </article>
+</BaseLayout>
