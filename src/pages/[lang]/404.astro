@@ -3,6 +3,11 @@ import Heading1 from "@components/ui/text-components/Heading1.astro";
 import { Image } from "astro:assets";
 import illustration404 from "@assets/general/page-not-found.png";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() => {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}) satisfies GetStaticPaths;
 ---
 
 <BaseLayout>
