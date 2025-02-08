@@ -1,4 +1,4 @@
-import type { GetStaticPathsItem, GetStaticPathsResult } from "astro";
+import type { GetStaticPathsItem } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 export interface BlogFromSlug {
@@ -12,10 +12,10 @@ export interface BlogFromSlug {
 }
 
 export interface BlogProps {
-  entry: CollectionEntry<"blog">;
+  entry: CollectionEntry<"blogEs"> | CollectionEntry<"blogEn">;
 }
 
-export type BlogPosts = CollectionEntry<"blog">;
+export type BlogPosts = CollectionEntry<"blogEs"> | CollectionEntry<"blogEn">;
 
 export interface BlogPostData {
   isDraft: boolean;
@@ -31,15 +31,14 @@ export interface BlogPostData {
 export interface DynamicTags extends GetStaticPathsItem {
   params: {
     tag: string;
-    lang: string;
-  },
+  };
   props: {
     posts: BlogPosts[];
-  },
-};
+  };
+}
 
 export interface BlogSeriesAlert {
   title: string;
   description: string;
   link: string;
-};
+}

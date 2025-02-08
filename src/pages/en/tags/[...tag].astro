@@ -1,58 +1,51 @@
 ---
 import type { GetStaticPaths } from "astro";
-import type {
-  BlogPosts,
-  DynamicTags,
-} from "@type/content-collections/blog-collection-types";
-import type { Lang } from "@translate/dictionary";
 import { getCollection } from "astro:content";
-import { useTranslations } from "@translate/utils/i18n-utils";
+
+import type { Lang } from "@i18n/dictionary";
+import { useTranslations } from "@i18n/utils/i18n-utils";
+import type { BlogPosts, DynamicTags } from "@type/content-collections";
+
 import BlogArticle from "@components/blog/BlogArticle.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
 
 export const getStaticPaths = (async (): Promise<DynamicTags[]> => {
   // Traer todos los posteos de la colección
-  const allBlogPosts = await getCollection("blog");
+  const englishBlogPosts = await getCollection("blogEn");
 
   // Generar dinámicamente los tags según los posteos
   const uniqueTags = [
-    ...new Set(allBlogPosts.map((post: BlogPosts) => post.data.tags).flat()),
+    ...new Set(
+      englishBlogPosts.map((post: BlogPosts) => post.data.tags).flat()
+    ),
   ];
 
   // Retornar una ruta en español e inglés por cada tag del blog
   return uniqueTags.flatMap((tag) => {
-    const filteredPosts = allBlogPosts.filter((post: BlogPosts) =>
-      post.data.tags.includes(tag),
+    const filteredPosts = englishBlogPosts.filter((post: BlogPosts) =>
+      post.data.tags.includes(tag)
     );
 
     const paths: DynamicTags[] = [
       {
         params: {
           tag: tag as string,
-          lang: "es",
-        },
-        props: { posts: filteredPosts },
-      },
-      {
-        params: {
-          tag: tag as string,
-          lang: "en",
         },
         props: { posts: filteredPosts },
       },
     ];
-
     return paths;
   });
 }) satisfies GetStaticPaths;
 
-const { tag, lang } = Astro.params;
+const { tag } = Astro.params;
 const { posts } = Astro.props;
+const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang as Lang);
 ---
 
-<BaseLayout>
+<Layout>
   <Heading1>{t("blog.tags.title")} {tag}</Heading1>
   <ul>
     {
@@ -60,10 +53,10 @@ const t = useTranslations(lang as Lang);
         <BlogArticle
           data={post.data}
           lang={post.data.language}
-          slug={post.slug}
+          slug={post.id}
           index={index}
         />
       ))
     }
   </ul>
-</BaseLayout>
+</Layout>

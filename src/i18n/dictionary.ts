@@ -7,7 +7,9 @@ export type Lang = "es" | "en";
 
 export const defaultLang = "es";
 
-export type TranslationKey = keyof typeof dictionary[typeof defaultLang];
+export const showDefaultLang = false;
+
+export type TranslationKey = keyof (typeof dictionary)[typeof defaultLang];
 
 export const dictionary = {
   es: {
@@ -23,12 +25,14 @@ export const dictionary = {
     "nav.work": "Portfolio",
     "nav.social.links": "Links",
     "nav.aria": "Menú principal",
-    "nav.aria.linklogo": "Ir a la página de inicio de Florencia Luz Duarte (@unicornio.dev)",
+    "nav.aria.linklogo":
+      "Ir a la página de inicio de Florencia Luz Duarte (@unicornio.dev)",
     "footer.nav.aria": "Menú secundario",
     "footer.socialmedia.aria": "Links a redes sociales",
     "footer.license": "Este trabajo está licenciado con",
     "home.title": "¡Hola! Mi nombre es Flor Luz Duarte 👋",
-    "home.small.bio": "Soy Desarrolladora de Software + Creadora de contenido técnico de Buenos Aires, Argentina. Cambié de carrera a los 30 años y me embarqué en un camino de aprendizaje autodidacta que espero nunca acabe. Unicornio Dev es mi espacio para aprender, divulgar, compartir y crear junto con la comunidad.",
+    "home.small.bio":
+      "Soy Desarrolladora de Software + Creadora de contenido técnico de Buenos Aires, Argentina. Cambié de carrera a los 30 años y me embarqué en un camino de aprendizaje autodidacta que espero nunca acabe. Unicornio Dev es mi espacio para aprender, divulgar, compartir y crear junto con la comunidad.",
     "home.about.link": "Conoce mi historia -->",
     "home.latest.articles": "Últimos artículos del blog",
     "about.title": "Algunas cosas sobre mi",
@@ -69,17 +73,20 @@ export const dictionary = {
     "nav.work": "Portfolio",
     "nav.aria": "Main Menu",
     "nav.social.links": "Links",
-    "nav.aria.linklogo": "Go to Florencia Luz Duarte's (@unicornio.dev) home page",
+    "nav.aria.linklogo":
+      "Go to Florencia Luz Duarte's (@unicornio.dev) home page",
     "footer.nav.aria": "Secondary menu",
     "footer.socialmedia.aria": "Links to social media",
     "footer.license": "This work is licensed under",
     "home.title": "Hi there! My name is Flor Luz Duarte 👋",
-    "home.small.bio": "I'm a Software Developer + Tech Content Creator from Buenos Aires, Argentina. I switched career paths at age 30 and embarked on a self-taught journey I hope never ends. Unicornio Dev is my online space for learning, sharing, and creating among the tech community.",
+    "home.small.bio":
+      "I'm a Software Developer + Tech Content Creator from Buenos Aires, Argentina. I switched career paths at age 30 and embarked on a self-taught journey I hope never ends. Unicornio Dev is my online space for learning, sharing, and creating among the tech community.",
     "home.about.link": "Know my story -->",
     "home.latest.articles": "Latest blog posts",
     "about.title": "A few things about me",
     "about.career.change": "Changing career paths at age 30",
-    "about.self.taught": "How to become a self-taught programmer without dying in the process",
+    "about.self.taught":
+      "How to become a self-taught programmer without dying in the process",
     "about.goals": "Upcoming Goals",
     "about.hobbies": "Not everything has to do with coding",
     "blog.title": "Blog in English",
@@ -100,6 +107,6 @@ export const dictionary = {
     "blog.publish": "Publish Date: ",
     "blog.tags.title": "Posts tagged with: ",
     "blog.tags.aria": "Filter by tag",
-    "thumbnail.aria": "YouTube cover"
-  }
+    "thumbnail.aria": "YouTube cover",
+  },
 } as const;

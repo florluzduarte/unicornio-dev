@@ -1,18 +1,22 @@
 ---
-import { languages, type Lang } from "@translate/dictionary";
-import NavbarItem from "../navbar/NavbarItem.astro";
 import { Icon } from "astro-icon/components";
 
-const currentPath = Astro.url.pathname.substring(4);
+import { languages, type Lang } from "@i18n/dictionary";
+import { useTranslatedPath } from "@i18n/utils/i18n-utils";
+
+const lang = Astro.currentLocale as Lang;
+const translatePath = useTranslatedPath(lang as Lang);
 ---
 
-<ul class="flex justify-around py-3 px-3 md:border-b-0 md:border-gray-100">
+<ul
+  class="flex justify-around py-3 px-3 md:border-b-0 md:border-gray-100 md:gap-3"
+>
   {
     Object.entries(languages).map(([lang, label]) => (
-      <NavbarItem lang={lang as Lang} subpath={currentPath}>
-        {label}
+      <li class="flex gap-3 md:me-2">
         <Icon name={`${lang}-flag`} size={24} />
-      </NavbarItem>
+        <a href={translatePath("/", lang)}>{label}</a>
+      </li>
     ))
   }
 </ul>
