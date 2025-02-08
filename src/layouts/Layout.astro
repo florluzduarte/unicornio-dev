@@ -1,6 +1,7 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-// Supports weights 100-900
+import { ClientRouter } from "astro:transitions";
+
+import "../styles/global.css";
 import "@fontsource-variable/inter";
 import "@fontsource/istok-web";
 
@@ -18,7 +19,7 @@ export interface Props {
 const {
   title = "Florencia Luz Duarte | unicornio.dev",
   description = "Un sitio web orientado a brindar acompañamiento y contenidos de valor a personas que están aprendiendo a programar.",
-  image = "/metatags-unicornio-links.png",
+  image = "/metatags-unicornio-web.png",
   urlPath = "/",
 } = Astro.props;
 
@@ -55,7 +56,8 @@ const locale = Astro.currentLocale;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
 
-    <ViewTransitions />
+    <!-- View transitions -->
+    <ClientRouter />
   </head>
   <body class="bg-black text-gray-100 font-mono lg:text-[18px] min-h-screen">
     <Navbar />

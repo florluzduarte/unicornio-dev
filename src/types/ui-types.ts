@@ -1,11 +1,6 @@
-import type { TranslationKey } from "@translate/dictionary";
+import type { TranslationKey } from "@i18n/dictionary";
 
 export type FontType = "regular" | "bold";
-
-export interface INavbarItem {
-  translationKey: TranslationKey
-  subpath: string;
-};
 
 export interface ISocialMediaLink {
   icon: string;
@@ -13,7 +8,7 @@ export interface ISocialMediaLink {
   name: string;
   altText: string;
   url: string;
-};
+}
 
 export type Languages = "Español" | "Inglés" | "Spanish" | "English";
 export type ShareLink = string | undefined;
@@ -32,7 +27,7 @@ export interface ITechTalks {
   slidesLink: ShareLink;
   description: string;
   date: string;
-};
+}
 
 export interface ICommunities {
   name: string;
@@ -46,16 +41,21 @@ export interface ICommunities {
   linkedin: ShareLink;
   image: string;
   imageAlt: string;
-};
+}
 
 export interface ISectionParagraph {
   text: string;
   order: number;
-};
+}
 
 export interface IResource {
   title: string;
   order: number;
   description: string;
   path: string;
-};
+}
+
+export interface INavbarItem {
+  translationKey: TranslationKey;
+  subpath: string;
+}
