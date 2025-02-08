@@ -1,9 +1,8 @@
 ---
-import type { GetStaticPaths } from "astro";
-import type { Lang } from "@translate/dictionary";
-import { useTranslations } from "@translate/utils/i18n-utils";
+import type { Lang } from "@i18n/dictionary";
+import { useTranslations } from "@i18n/utils/i18n-utils";
 import { Image } from "astro:assets";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import Heading1 from "@components/ui/text-components/Heading1.astro";
 import Heading2 from "@components/ui/text-components/Heading2.astro";
 import ParagraphGenerator from "@components/ui/text-components/ParagraphGenerator.astro";
@@ -23,15 +22,11 @@ import {
 import florPic from "@assets/about/about-profile-picture.jpg";
 import cats from "@assets/about/about-cats.jpg";
 
-export const getStaticPaths = (() => {
-  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
-}) satisfies GetStaticPaths;
-
 const lang = Astro.currentLocale as Lang;
 const t = useTranslations(lang);
 ---
 
-<BaseLayout>
+<Layout>
   <Heading1>{t("about.title")}</Heading1>
   <Image src={florPic} alt="Florencia Luz Duarte" />
   <ParagraphGenerator
@@ -56,4 +51,4 @@ const t = useTranslations(lang);
     englishTexts={englishHobbies}
     spanishTexts={spanishHobbies}
   />
-</BaseLayout>
+</Layout>

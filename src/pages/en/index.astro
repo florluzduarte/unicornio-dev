@@ -1,19 +1,14 @@
 ---
-import type { GetStaticPaths } from "astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import SmallBio from "@components/home/SmallBio.astro";
 import LatestPosts from "@components/home/LatestPosts.astro";
 import Line from "@components/ui/line/Line.astro";
-
-export const getStaticPaths = (() => {
-  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
-}) satisfies GetStaticPaths;
 ---
 
-<BaseLayout>
+<Layout>
   <div class="flex flex-col gap-14 mb-8">
     <SmallBio />
     <Line />
     <LatestPosts />
   </div>
-</BaseLayout>
+</Layout>

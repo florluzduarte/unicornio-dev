@@ -16,5 +16,5 @@ export const navbarLinksData: INavbarItem[] = [
   {
     translationKey: "nav.about",
     subpath: "about/",
-  }
+  },
 ];
